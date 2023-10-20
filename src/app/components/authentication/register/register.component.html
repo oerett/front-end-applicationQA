@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div id="register-component" class="page-layout">
+    <mat-card>
+        <span class="back-arrow-holder" matTooltip="Go back to sign-in form" (click)="goToLogin()">
+            <mat-icon matSuffix class="arrow-back">arrow_back</mat-icon>
+        </span>
+        <h2 class="center">Register</h2>
+        <form class="register-form" name="registerForm" [formGroup]="registerForm" fxFlex fxLayout="column">
+            <mat-form-field appearance="outline" class="p-bottom">
+                <mat-label>Choose your role</mat-label>
+                <mat-select required formControlName="role">
+                    <mat-option *ngFor="let role of roles$" [value]="role.code">
+                        {{role.description}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <span *ngIf="registerForm.get('email')?.hasError('invalidEmail')" class="invalid-mail">
+                Please enter a valid email address.
+            </span>
+            <mat-form-field appearance="outline" class="p-bottom p-top">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+                <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+            <div class="register-info p-bottom">
+                Don't have an account?
+                <span class="anchor" (click)="register()">Register now</span>
+            </div>
+            <button class="sign-in" mat-raised-button color="primary" aria-label="LOGIN"
+                (click)="loginUser(registerForm)">
+                Sign in
+            </button>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,51 @@
+#register-component {
+  @import 'src/app/shared/scss/helpers';
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .mat-mdc-card {
+    background-color: white;
+    max-width: 70%;
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .sign-in {
+    margin: 0 0 20px;
+  }
+
+  .invalid-mail {
+    font-size: 10px;
+    color: red;
+  }
+
+  .register-info {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .back-arrow-holder {
+    position: absolute;
+    top: 20px;
+    left: 18px;
+
+    .arrow-back {
+      font-size: 18px;
+      color: #03A9F4;
+      cursor: pointer;
+    }
+
+  }
+
+  ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+}

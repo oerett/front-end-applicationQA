@@ -13,10 +13,14 @@
                 </span>
                 <mat-form-field appearance="outline" class="p-bottom p-top">
                     <mat-label>Password</mat-label>
-                    <input matInput formControlName="password" required>
-                    <mat-icon matSuffix>email</mat-icon>
+                    <input matInput type="password" formControlName="password" required>
+                    <mat-icon matSuffix>password</mat-icon>
                 </mat-form-field>
-                <button class="sign-in" mat-raised-button color="accent" aria-label="LOGIN"
+                <div class="register-info p-bottom">
+                    Don't have an account?
+                    <span class="anchor" (click)="register()">Register now</span>
+                </div>
+                <button class="sign-in" mat-raised-button color="primary" aria-label="LOGIN"
                     (click)="loginUser(loginForm)">
                     Sign in
                 </button>

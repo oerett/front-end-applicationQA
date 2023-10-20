@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/services/common-methods.service';
 @Component({
   selector: 'app-login',
@@ -8,9 +9,11 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+
   constructor(
     private _formBuilder: FormBuilder,
     private sharedService: SharedService,
+    private router: Router
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
@@ -23,5 +26,9 @@ export class LoginComponent {
 
   loginUser(form: FormGroup) {
     form.invalid == true ? form.markAllAsTouched() : console.log("do the api call");
+  }
+
+  register() {
+    this.router.navigate(["auth/register"]);
   }
 }

@@ -30,3 +30,20 @@ input {
 .p-top {
   padding-top: 20px;
 }
+
+.anchor {
+  color: #03A9F4;
+}
+
+.anchor:hover {
+  text-decoration: underline;
+  text-decoration-color: #03A9F4;
+  cursor: pointer;
+}
+
+h2 {
+  padding: 10px;
+  font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  color: #03A9F4;
+  font-weight: 500;
+}
