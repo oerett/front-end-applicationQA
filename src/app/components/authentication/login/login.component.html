@@ -11,7 +11,7 @@
                 <span *ngIf="loginForm.get('email')?.hasError('invalidEmail')" class="invalid-mail">
                     Please enter a valid email address.
                 </span>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="p-bottom p-top">
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" required>
                     <mat-icon matSuffix>email</mat-icon>

@@ -15,7 +15,18 @@
   color: rgba(0, 0, 0, 0.19);
 }
 
+::ng-deep .mat-mdc-text-field-wrapper {
+  // outline: auto;
+}
 
 input {
   color: black;
+}
+
+.p-bottom {
+  padding-bottom: 20px;
+}
+
+.p-top {
+  padding-top: 20px;
 }
