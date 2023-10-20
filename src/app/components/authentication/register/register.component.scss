@@ -24,6 +24,8 @@
   .invalid-mail {
     font-size: 10px;
     color: red;
+    position: absolute;
+    top: 170px;
   }
 
   .register-info {
@@ -33,12 +35,12 @@
 
   .back-arrow-holder {
     position: absolute;
-    top: 20px;
-    left: 18px;
+    top: 13px;
+    left: 20px;
 
     .arrow-back {
       font-size: 18px;
-      color: #03A9F4;
+      // color: #03A9F4;
       cursor: pointer;
     }
 
