@@ -2,6 +2,14 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "cli": {
+    "packageManager": "yarn",
+    "analytics": "1e850ebf-34f6-4741-aefc-89265d9c509e",
+    "cache": {
+      "enabled": false,
+      "environment": "all"
+    }
+  },
   "projects": {
     "front-end-application": {
       "projectType": "application",
