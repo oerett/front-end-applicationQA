@@ -13,8 +13,8 @@
                     <input matInput formControlName="password" required>
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
-                <button mat-raised-button color="accent" aria-label="LOGIN" [disabled]="loginForm.invalid"
-                    (click)="loginUser()">
+                <button class="sign-in" mat-raised-button color="accent" aria-label="LOGIN"
+                    (click)="loginUser(loginForm)">
                     Sign in
                 </button>
             </form>

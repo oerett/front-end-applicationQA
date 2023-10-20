@@ -10,3 +10,12 @@
 .mat-icon {
   color: gray;
 }
+
+::ng-deep .mdc-floating-label {
+  color: rgba(0, 0, 0, 0.19);
+}
+
+
+input {
+  color: black;
+}

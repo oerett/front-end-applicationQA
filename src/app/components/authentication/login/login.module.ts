@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 const routes = [
     {
@@ -20,6 +21,7 @@ const routes = [
     declarations: [LoginComponent],
     imports: [
         MatCardModule,
+        CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
         MatButtonModule,

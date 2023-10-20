@@ -17,10 +17,9 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    console.log("login component inside");
   }
 
-  loginUser() {
-
+  loginUser(form: FormGroup) {
+    form.invalid == true ? form.markAllAsTouched() : console.log("do the api call");
   }
 }
