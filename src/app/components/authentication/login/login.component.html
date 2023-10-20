@@ -8,6 +8,9 @@
                     <input matInput formControlName="email" required>
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
+                <span *ngIf="loginForm.get('email')?.hasError('invalidEmail')" class="invalid-mail">
+                    Please enter a valid email address.
+                </span>
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" required>

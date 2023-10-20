@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from 'src/app/shared/services/common-methods.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,9 +10,10 @@ export class LoginComponent {
   loginForm: FormGroup;
   constructor(
     private _formBuilder: FormBuilder,
+    private sharedService: SharedService,
   ) {
     this.loginForm = this._formBuilder.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, this.sharedService.emailValidator()]],
       password: ['', Validators.required]
     });
   }
