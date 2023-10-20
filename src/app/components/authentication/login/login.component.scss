@@ -1,6 +1,29 @@
 #login-component {
   @import 'src/app/shared/scss/helpers';
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
+  .mat-mdc-card {
+    background-color: white;
+    max-width: 70%;
+  }
+
+  h2 {
+    padding: 10px;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  ::ng-deep .mdc-floating-label {
+    color: rgba(0, 0, 0, 0.19);
+  }
 
 }

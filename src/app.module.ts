@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './app/services/auth-services/guard-services/auth-guard.service';
 import { RegisterComponent } from './app/components/authentication/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 const appRoutes: Routes = [
   {
@@ -19,9 +21,12 @@ const appRoutes: Routes = [
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

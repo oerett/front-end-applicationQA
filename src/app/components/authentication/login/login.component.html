@@ -1,3 +1,23 @@
 <div id="login-component" class="page-layout">
-
+    <mat-card>
+        <div>
+            <h2 class="center">Sign in </h2>
+            <form class="login-form" name="loginForm" [formGroup]="loginForm" fxFlex fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button color="accent" aria-label="LOGIN" [disabled]="loginForm.invalid"
+                    (click)="loginUser()">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </mat-card>
 </div>
