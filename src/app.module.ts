@@ -7,6 +7,9 @@ import { RegisterComponent } from './app/components/authentication/register/regi
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { environment } from "./environments/environment";
 
 const appRoutes: Routes = [
   {
@@ -26,7 +29,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,  
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]
