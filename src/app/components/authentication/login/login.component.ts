@@ -7,7 +7,10 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { environment } from 'src/environments/environment';
 import { from } from 'rxjs';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
-import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { switchMap, map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +24,7 @@ export class LoginComponent {
     private sharedService: SharedService,
     private router: Router,
     private _dialog: DialogService,
+    private firestore: AngularFirestore
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
@@ -29,6 +33,8 @@ export class LoginComponent {
   }
 
   ngOnInit() {
+
+
   }
 
   loginUser(form: FormGroup) {
@@ -38,23 +44,34 @@ export class LoginComponent {
   async loginApicall(form: FormGroup) {
     console.log(initializeApp(environment.firebaseConfig), "firebaseConfig");
     const auth = getAuth();
-    from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).subscribe({
-      next: userCredential => {
-        const user = userCredential.user;
-        this.sharedService.saveUserInFirestore(user.uid, form.value['email'], form.value['role'].code).then((res) => {
-          console.log(res, "RESI")
-          //  this.router.navigate([""])
+    from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
+      const user = userCredential.user;
+      const userDocRef = this.firestore.collection('users').doc(user['uid']);
+      return userDocRef.valueChanges().pipe(
+        map(userData => ({ user, userData }))
+      );
+    })).subscribe({
+      next: ({ user, userData }: any) => {
+        let role = "";
+        if (userData) {
+          role = userData['role'];
+        }
+        console.log(role, "ROLIIII");
+        localStorage.setItem("isAuthenticated", "true");
+        this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
+          role == "js" ? this.router.navigate(["/jobs/job-seeker"]) : this.router.navigate(["/jobs/job-offer"]);
         }).catch(error => {
           this._dialog.openErrorDialogV2("Error", error, '', '');
         });
       },
       error: error => {
-        console.log(error.code, "errorcodee")
-        if (error.code == "auth/email-already-in-use")
-          this._dialog.openErrorDialogV2("Error", "Email is already in use!", '', '');
+        if (error.code == "auth/invalid-login-credentials") {
+          this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
+        }
       }
     });
   }
+
 
   register() {
     this.router.navigate(["auth/register"]);

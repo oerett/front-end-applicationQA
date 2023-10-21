@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class AuthGuardService {
 
     constructor(private router: Router) {
-        console.log("therritet ky??")
     }
 
     canActivate() {
@@ -18,7 +17,6 @@ export class AuthGuardService {
             authenticated = JSON.parse(storedValue);
             return true;
         } else {
-            console.log("jemi ne navigim??  ")
             return this.router.navigate(['/auth/login']);
         }
     }

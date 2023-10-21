@@ -20,13 +20,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AngularFireModule } from '@angular/fire/compat';
 
 const appRoutes: Routes = [
   {
     path: "auth",
     loadChildren: () => import('./app/components/authentication/authentication.module').then(m => m.AuthenticationModule)
   },
-  { path: '', component: RegisterComponent, canActivate: [AuthGuardService] },
+  {
+    path: "jobs",
+    loadChildren: () => import('./app/components/menus/jobs/jobs.module').then(m => m.JobsModule),
+    canActivate: [AuthGuardService],
+  },
+  // { path: '', component: RegisterComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
@@ -36,6 +42,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     provideAuth(() => getAuth()),
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
