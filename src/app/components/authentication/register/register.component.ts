@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { SharedService } from 'src/app/shared/services/common-methods.service';
-import { environment } from 'src/environments/environment';
-import { initializeApp } from 'firebase/app';
 import { from } from 'rxjs';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 

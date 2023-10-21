@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { getApps } from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,10 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+    if (getApps().length === 0) {
+      console.log('Firebase has not been initialized (app Comp)');
+    } else {
+      console.log('Firebase has been initialized (app Comp)');
+    }
   }
 }
