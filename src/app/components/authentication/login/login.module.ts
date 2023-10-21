@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
 
 const routes = [
     {
@@ -31,8 +32,8 @@ const routes = [
         MatIconModule,
         MatInputModule,
         ReactiveFormsModule,
-        AngularFirestoreModule
     ],
     exports: []
 })
 export class LoginModule { }
+

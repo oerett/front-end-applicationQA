@@ -42,7 +42,6 @@ export class LoginComponent {
   }
 
   async loginApicall(form: FormGroup) {
-    console.log(initializeApp(environment.firebaseConfig), "firebaseConfig");
     const auth = getAuth();
     from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
       const user = userCredential.user;

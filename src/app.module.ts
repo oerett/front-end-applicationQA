@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 const appRoutes: Routes = [
   {
@@ -41,15 +42,16 @@ const appRoutes: Routes = [
     DialogV2Component,
   ],
   imports: [
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    provideAuth(() => getAuth()),
-    FlexLayoutModule,
+    BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    BrowserModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    // Only this for Firebase initialization
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    // Angular Material modules
     MatDialogModule,
     MatIconModule,
     CommonModule,
@@ -64,3 +66,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
