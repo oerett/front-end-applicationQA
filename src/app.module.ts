@@ -62,7 +62,6 @@ export function initializeFirebaseApp(): () => Promise<any> {
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFirestoreModule,
     // Angular Material modules
     MatDialogModule,
     MatIconModule,

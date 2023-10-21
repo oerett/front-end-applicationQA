@@ -6,8 +6,6 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
 import { from, map, switchMap } from 'rxjs';
 
 @Component({
@@ -32,7 +30,6 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    console.log("INSIDE???")
   }
 
   loginUser(form: FormGroup) {
