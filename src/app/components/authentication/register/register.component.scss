@@ -17,8 +17,8 @@
     padding: 10px 20px;
   }
 
-  .sign-in {
-    margin: 0 0 20px;
+  .sign-up {
+    margin: 15px 0 20px;
   }
 
   .invalid-mail {
@@ -26,6 +26,13 @@
     color: red;
     position: absolute;
     top: 186px;
+  }
+
+  .invalid-password {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    top: 260px;
   }
 
   .register-info {
@@ -40,7 +47,6 @@
 
     .arrow-back {
       font-size: 18px;
-      // color: #03A9F4;
       cursor: pointer;
     }
 

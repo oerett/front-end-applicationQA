@@ -1,0 +1,66 @@
+#card-dialog-v2 {
+
+  .title {
+    padding: 10px 10px 10px 20px !important;
+    font-weight: 100;
+    color: white;
+    font-size: 18px;
+    padding: 20px;
+
+    .red {
+      background-color: #f5564a;
+    }
+
+    .blue {
+      background-color: #1A78C2;
+    }
+  }
+
+  .content-data {
+    padding: 0px 20px 0px 20px;
+    max-width: 100%;
+    word-wrap: break-word;
+
+    .content-title {
+      color: gray
+    }
+
+    .center {
+      text-align: center;
+    }
+
+  }
+
+  .btnHolder {
+    padding: 0px 20px 20px 20px;
+    text-align: right;
+
+    .okBtn {
+      margin-right: 20px;
+    }
+  }
+
+  hr {
+    margin-top: 20px;
+    border-color: lightgray !important;
+    color: lightgray !important;
+    background-color: lightgray !important;
+    height: 1px;
+    border: none;
+  }
+
+  .top-right {
+    position: relative;
+    display: inline-block;
+    margin-top: -5px;
+
+    button {
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+  }
+
+  .close {
+    color: white;
+  }
+}

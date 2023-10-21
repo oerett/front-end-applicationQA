@@ -1,0 +1,21 @@
+<div id="card-dialog-v2" class="card-dialog" mat-card>
+    <div [ngClass]="getClass(data.titleBg)" mat-dialog-title>
+        <span fxFlex="95"> {{data.title}} </span>
+        <div class="top-right">
+            <button mat-mini-fab class="close-btn" [mat-dialog-close]="false">
+                <mat-icon matSuffix class="close">close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="content-data">
+        <p class="content-title">{{data.before}} <label>{{data.data}}</label>
+            {{data.after}} <label *ngIf="data.after2 != undefined">
+                {{data.after2}}</label></p>
+    </div>
+    <div class="btnHolder">
+        <hr>
+        <button class="ok-btn" [mat-dialog-close]="true" *ngIf="data.hasOkBtn" mat-flat-button
+            color="primary">OK</button>
+        <button [mat-dialog-close]="false" *ngIf="data.hasCloseBtn" mat-flat-button>Cancel</button>
+    </div>
+</div>

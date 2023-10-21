@@ -8,7 +8,7 @@
             <mat-form-field appearance="outline" class="p-bottom">
                 <mat-label>Choose your role</mat-label>
                 <mat-select required formControlName="role">
-                    <mat-option *ngFor="let role of roles$" [value]="role.code">
+                    <mat-option *ngFor="let role of roles$" [value]="role">
                         {{role.description}}
                     </mat-option>
                 </mat-select>
@@ -18,17 +18,20 @@
                 <input matInput formControlName="email" required>
                 <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
-            <span *ngIf="registerForm.get('email')?.hasError('invalidEmail') && registerForm.get('email')?.touched"
+            <mat-error *ngIf="registerForm.get('email')?.hasError('invalidEmail') && registerForm.get('email')?.touched"
                 class="invalid-mail">
                 Please enter a valid email address.
-            </span>
+            </mat-error>
             <mat-form-field appearance="outline" class="p-bottom p-top">
                 <mat-label>Password</mat-label>
                 <input matInput formControlName="password" type="password" required>
                 <mat-icon matSuffix>password</mat-icon>
             </mat-form-field>
-            <button class="sign-in" mat-raised-button color="primary" aria-label="LOGIN"
-                (click)="register(registerForm)">
+            <mat-error class="invalid-password" *ngIf="registerForm.get('password')?.hasError('minlength')">
+                Password must be at least 6 characters long.
+            </mat-error>
+            <button class="sign-up" mat-raised-button color="primary" aria-label="SIGNUP"
+                (click)="registerUser(registerForm)" [disabled]="registerForm.invalid">
                 Sign up
             </button>
         </form>

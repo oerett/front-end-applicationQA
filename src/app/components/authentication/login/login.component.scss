@@ -18,14 +18,21 @@
   }
 
   .sign-in {
-    margin: 0 0 20px;
+    margin: 15px 0 20px;
   }
 
   .invalid-mail {
     font-size: 10px;
     color: red;
     position: absolute;
-    top: 101px;
+    top: 98px;
+  }
+
+  .invalid-password {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    top: 173px;
   }
 
   .register-info {
@@ -33,8 +40,15 @@
     text-align: center;
   }
 
-  ::ng-deep .mat-mdc-form-field-subscript-wrapper {
-    display: none;
+  ::ng-deep {
+    .mat-mdc-checkbox-touch-target {
+      width: 20px;
+      height: 20px;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
   }
 
 }
