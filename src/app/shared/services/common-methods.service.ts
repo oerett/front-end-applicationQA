@@ -1,5 +1,7 @@
 
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 
@@ -8,6 +10,12 @@ import { doc, getFirestore, setDoc } from "firebase/firestore";
 })
 
 export class SharedService {
+
+    constructor(
+        private firestore: AngularFirestore,
+        private http: HttpClient
+    ) {
+    }
 
     emailValidator(): ValidatorFn {
         return (control: AbstractControl): { [key: string]: any } | null => {
@@ -29,5 +37,22 @@ export class SharedService {
             console.error('Error saving user data:', error);
         }
     }
+
+    addMultipleJobs() {
+        if (localStorage.getItem('jobsAdded')) {
+            return;
+        }
+        this.http.get('assets/jobs-list.json').subscribe((data: any) => {
+            const batch = this.firestore.firestore.batch();
+            data.forEach((job: any) => {
+                const jobRef = this.firestore.collection('jobs').doc().ref;
+                batch.set(jobRef, job);
+            });
+            batch.commit().then(() => {
+                localStorage.setItem('jobsAdded', 'true');
+            });
+        });
+    }
+
 
 }

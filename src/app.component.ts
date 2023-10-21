@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { getApps } from 'firebase/app';
+import { SharedService } from './app/shared/services/common-methods.service';
+import { v4 as uuidv4 } from 'uuid';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,10 @@ import { getApps } from 'firebase/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  constructor(private router: Router) { }
+  jobs: any = [];
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
-   
   }
+
 }

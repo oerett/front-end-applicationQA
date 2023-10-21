@@ -3,6 +3,9 @@ import { AuthGuardService } from "src/app/services/auth-services/guard-services/
 import { NgModule } from "@angular/core";
 import { JobOfferComponent } from "./job-offer/job-offer.component";
 import { JobSeekerComponent } from "./job-seeker/job-seeker.component";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { JobFilterPipe } from "src/app/shared/pipes/jobs-filter.pipe";
 
 const routes: Routes = [
     {
@@ -114,9 +117,13 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         JobOfferComponent,
-        JobSeekerComponent
+        JobSeekerComponent,
+        JobFilterPipe,
     ],
     imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild(routes),
     ],
     exports: [],

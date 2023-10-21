@@ -1,0 +1,601 @@
+[{
+  "jobDescription": "Software Engineer",
+  "jobLongDescription": "Develops, tests, and maintains software applications",
+  "jobId": "9dd45e24-bb28-49ac-8278-6fe870618e33"
+}, {
+  "jobDescription": "Data Scientist",
+  "jobLongDescription": "Analyzes and interprets complex data to inform business decisions",
+  "jobId": "78079b3b-56e8-4948-a955-69b989f5af4f"
+}, {
+  "jobDescription": "Product Manager",
+  "jobLongDescription": "Oversees the development and management of a product from ideation to launch",
+  "jobId": "b374e9dc-a330-4986-9b55-bccf331c88c8"
+}, {
+  "jobDescription": "Graphic Designer",
+  "jobLongDescription": "Creates visual content for marketing materials, websites, and more",
+  "jobId": "7356ce1c-1aef-4f3b-8b47-354502a72456"
+}, {
+  "jobDescription": "Marketing Manager",
+  "jobLongDescription": "Plans and executes marketing campaigns to promote products or services",
+  "jobId": "6348ad78-5a46-4941-9ac4-cdb3defd0093"
+}, {
+  "jobDescription": "Sales Representative",
+  "jobLongDescription": "Sells products or services to clients or customers",
+  "jobId": "7eb2a6d7-a030-4d18-8576-48f33fde4003"
+}, {
+  "jobDescription": "Accountant",
+  "jobLongDescription": "Manages financial records, prepares tax returns, and ensures compliance",
+  "jobId": "0e5f314e-5f56-423b-ae15-32acd14114bc"
+}, {
+  "jobDescription": "Nurse",
+  "jobLongDescription": "Provides medical care, administers medications, and assists with patient needs",
+  "jobId": "b3210703-16ef-4f25-8226-7b6fa32f84cf"
+}, {
+  "jobDescription": "Project Manager",
+  "jobLongDescription": "Leads project teams, oversees budgets, and ensures project goals are met",
+  "jobId": "8238c8e9-631c-46b5-a2a3-08fd579795f5"
+}, {
+  "jobDescription": "Human Resources Manager",
+  "jobLongDescription": "Manages HR functions, including hiring, training, and employee relations",
+  "jobId": "cacbbff8-7f27-4b76-81c2-ee74fed34078"
+}, {
+  "jobDescription": "Teacher",
+  "jobLongDescription": "Educates and instructs students in various subjects and grade levels",
+  "jobId": "ca0b7537-770b-4e83-a3b1-b8c775ee69de"
+}, {
+  "jobDescription": "Mechanical Engineer",
+  "jobLongDescription": "Designs, tests, and develops mechanical systems and products",
+  "jobId": "a5aff149-256b-4517-8ad0-48d277cc6ba8"
+}, {
+  "jobDescription": "Electrician",
+  "jobLongDescription": "Installs and repairs electrical systems and wiring",
+  "jobId": "d2f58130-9692-4b4c-90ae-3af51f26344e"
+}, {
+  "jobDescription": "Content Writer",
+  "jobLongDescription": "Creates written content for websites, blogs, and marketing materials",
+  "jobId": "a707a1ee-fb81-4518-9003-c3a78e27fe60"
+}, {
+  "jobDescription": "Web Developer",
+  "jobLongDescription": "Builds and maintains websites and web applications",
+  "jobId": "7df56a94-e5c3-4f0b-a966-029727995595"
+}, {
+  "jobDescription": "Financial Analyst",
+  "jobLongDescription": "Analyzes financial data to provide investment and business recommendations",
+  "jobId": "5f8b440e-dbb6-4ce8-9f5a-890b255d1b9f"
+}, {
+  "jobDescription": "Chef",
+  "jobLongDescription": "Prepares and cooks food in restaurants and other food service establishments",
+  "jobId": "cf85392f-48ff-4f74-9b64-f9153bac3dce"
+}, {
+  "jobDescription": "Legal Counsel",
+  "jobLongDescription": "Provides legal advice, research, and representation to clients",
+  "jobId": "efe461d1-c53f-4ba7-bdba-bb315073f93c"
+}, {
+  "jobDescription": "Customer Service Representative",
+  "jobLongDescription": "Assists customers with inquiries, issues, and complaints",
+  "jobId": "c5e7f9f0-dc2c-4464-be96-109e8b2b108b"
+}, {
+  "jobDescription": "Architect",
+  "jobLongDescription": "Designs and plans buildings and structures",
+  "jobId": "f9f8be4c-1a78-461f-b679-134a3092a47b"
+}, {
+  "jobDescription": "UX/UI Designer",
+  "jobLongDescription": "Focuses on user experience and interface design for websites and applications",
+  "jobId": "70050924-4dc1-4f8e-ad10-f116e08e9b20"
+}, {
+  "jobDescription": "Pharmacist",
+  "jobLongDescription": "Dispenses medications, provides information on drug usage, and ensures patient safety",
+  "jobId": "77850bf9-4422-4ea8-a666-4ea3b11e2876"
+}, {
+  "jobDescription": "Social Worker",
+  "jobLongDescription": "Provides support and counseling to individuals and families in need",
+  "jobId": "b6e6e278-7eb9-414f-9762-e3e6bc5bbb9c"
+}, {
+  "jobDescription": "Data Analyst",
+  "jobLongDescription": "Collects, analyzes, and interprets data to support business decisions",
+  "jobId": "09819f9c-1689-4acf-aac4-a8177ef62f25"
+}, {
+  "jobDescription": "IT Support Specialist",
+  "jobLongDescription": "Assists with troubleshooting and technical support for computer systems",
+  "jobId": "546cbd47-1d60-4f8c-8a91-c9067ea4ae47"
+}, {
+  "jobDescription": "Financial Advisor",
+  "jobLongDescription": "Advises clients on financial planning, investments, and retirement planning",
+  "jobId": "51e6c287-d310-4e17-a1c8-115b08857d6a"
+}, {
+  "jobDescription": "Operations Manager",
+  "jobLongDescription": "Oversees day-to-day operations of a business or organization",
+  "jobId": "3f404d09-06db-46ed-9f30-3212573d35bd"
+}, {
+  "jobDescription": "Veterinarian",
+  "jobLongDescription": "Provides medical care and treatment to animals",
+  "jobId": "d6b3cb99-ec87-4418-9a56-c7f82b41e655"
+}, {
+  "jobDescription": "Electrician",
+  "jobLongDescription": "Installs and maintains electrical systems and wiring",
+  "jobId": "c1821b02-1723-433e-900e-4fd3aebae5d3"
+}, {
+  "jobDescription": "Civil Engineer",
+  "jobLongDescription": "Designs and oversees the construction of infrastructure and public works projects",
+  "jobId": "cc3a52e4-d563-40f7-b8c7-44ac32cf8cac"
+}, {
+  "jobDescription": "Physical Therapist",
+  "jobLongDescription": "Helps patients recover from injuries and improve physical mobility",
+  "jobId": "8237574f-c753-45f3-8d1a-c53fbe73034c"
+}, {
+  "jobDescription": "Software Developer",
+  "jobLongDescription": "Creates and maintains software applications and solutions",
+  "jobId": "75142833-470e-40f1-b9c3-ba1087fdb463"
+}, {
+  "jobDescription": "Art Director",
+  "jobLongDescription": "Leads creative teams in the design and development of visual content",
+  "jobId": "22fc2548-f070-4def-9ae7-5e3a8aeeea6c"
+}, {
+  "jobDescription": "Occupational Therapist",
+  "jobLongDescription": "Assists patients in regaining independence in daily activities",
+  "jobId": "7900f882-0ee5-442d-9fd7-2ce18083e3bc"
+}, {
+  "jobDescription": "Market Research Analyst",
+  "jobLongDescription": "Gathers data and conducts market research to inform business strategies",
+  "jobId": "362c52c7-f8a0-4c5f-a8f8-b629f1018113"
+}, {
+  "jobDescription": "Police Officer",
+  "jobLongDescription": "Enforces laws, responds to emergencies, and maintains public safety",
+  "jobId": "faf08fc0-920a-46bd-8a05-8e1f916266e3"
+}, {
+  "jobDescription": "Aerospace Engineer",
+  "jobLongDescription": "Designs and tests aircraft, spacecraft, and related systems",
+  "jobId": "d3fd780f-d9e1-447d-80d0-ecfe8f3e1a94"
+}, {
+  "jobDescription": "Radiologist",
+  "jobLongDescription": "Specializes in diagnosing and treating medical conditions using medical imaging",
+  "jobId": "ffd9309c-b750-453b-a5a3-d30bf3a7d61b"
+}, {
+  "jobDescription": "Photographer",
+  "jobLongDescription": "Captures and edits visual images for various purposes",
+  "jobId": "b1b5b9e7-2fe6-4c56-8fb6-a8809a8bbc22"
+}, {
+  "jobDescription": "Network Administrator",
+  "jobLongDescription": "Manages and maintains computer networks and systems",
+  "jobId": "5c3d91c3-88e0-42d8-9f3c-6703420b7519"
+}, {
+  "jobDescription": "Dental Hygienist",
+  "jobLongDescription": "Cleans teeth, conducts oral exams, and provides dental care",
+  "jobId": "7ba48822-8097-4cd5-9878-4fef5425ff61"
+}, {
+  "jobDescription": "Psychologist",
+  "jobLongDescription": "Provides counseling and therapy to individuals and groups",
+  "jobId": "30625697-10b5-42d0-a416-2fa202ee8a0e"
+}, {
+  "jobDescription": "Speech-Language Pathologist",
+  "jobLongDescription": "Assesses and treats communication disorders",
+  "jobId": "65efcd48-dc19-4d4a-b8fd-214bf3877758"
+}, {
+  "jobDescription": "Quality Assurance Analyst",
+  "jobLongDescription": "Ensures the quality and functionality of software applications",
+  "jobId": "e6e9fb7f-9264-4942-8654-c60b5c594fc3"
+}, {
+  "jobDescription": "Financial Manager",
+  "jobLongDescription": "Manages an organization's financial operations and strategic planning",
+  "jobId": "1c7f0fb5-e391-41cd-ae8e-df25fe8d5b22"
+}, {
+  "jobDescription": "Librarian",
+  "jobLongDescription": "Manages library collections, assists patrons, and promotes literacy",
+  "jobId": "cb9f546a-586a-46d8-8365-501523f49698"
+}, {
+  "jobDescription": "SEO Specialist",
+  "jobLongDescription": "Optimizes online content for search engines to improve search rankings",
+  "jobId": "9d1a583c-3566-492f-a095-28c3332097a3"
+}, {
+  "jobDescription": "Biomedical Engineer",
+  "jobLongDescription": "Develops medical equipment and devices for healthcare applications",
+  "jobId": "d12aa183-3b00-4a63-ac63-55f8b5edaa4d"
+}, {
+  "jobDescription": "Geologist",
+  "jobLongDescription": "Studies the Earth's structure, composition, and natural resources",
+  "jobId": "1a7d34f3-3f4c-4a75-b880-de345d20a495"
+}, {
+  "jobDescription": "Marketing Coordinator",
+  "jobLongDescription": "Assists in planning and executing marketing campaigns and strategies",
+  "jobId": "1ce50e0a-01be-413f-8ced-fe8bdd1099ab"
+}, {
+  "jobDescription": "Firefighter",
+  "jobLongDescription": "Responds to fires, accidents, and other emergencies to protect life and property",
+  "jobId": "f05da630-c8df-4111-b089-b55961d9a707"
+}, {
+  "jobDescription": "UX Researcher",
+  "jobLongDescription": "Conducts user research to inform product design and development",
+  "jobId": "33850071-91b9-4d78-9686-9fb425cc4c3d"
+}, {
+  "jobDescription": "Computer Scientist",
+  "jobLongDescription": "Conducts research and develops algorithms and software for various applications",
+  "jobId": "183e673e-6e1b-42fa-a8c4-778aa5b5e756"
+}, {
+  "jobDescription": "Occupational Health and Safety Specialist",
+  "jobLongDescription": "Ensures workplace safety and compliance with regulations",
+  "jobId": "caeeacca-a050-4b48-8d71-21f8fc39b53b"
+}, {
+  "jobDescription": "Physical Education Teacher",
+  "jobLongDescription": "Instructs students in physical fitness and sports activities",
+  "jobId": "f88a60d4-5e02-4129-89fe-ba514d6bdfe3"
+}, {
+  "jobDescription": "Electrical Engineer",
+  "jobLongDescription": "Designs and develops electrical systems and components",
+  "jobId": "748ac57b-42cf-4e47-9df5-d54c07231679"
+}, {
+  "jobDescription": "Emergency Medical Technician (EMT)",
+  "jobLongDescription": "Provides emergency medical care in ambulance services",
+  "jobId": "46fe4d6e-e2e1-4ef2-be7a-e38b5772e3df"
+}, {
+  "jobDescription": "Data Engineer",
+  "jobLongDescription": "Manages and optimizes data pipelines and data infrastructure",
+  "jobId": "0eb198c7-6a9a-4a05-a559-d5078f939a84"
+}, {
+  "jobDescription": "Marine Biologist",
+  "jobLongDescription": "Studies marine ecosystems and organisms in oceans and seas",
+  "jobId": "b3f58f2e-e46a-40c6-b209-5ba4398d3422"
+}, {
+  "jobDescription": "Clinical Research Coordinator",
+  "jobLongDescription": "Manages and oversees clinical research trials and studies",
+  "jobId": "7d777d38-e761-471b-b3f8-a256fdf36577"
+}, {
+  "jobDescription": "Product Designer",
+  "jobLongDescription": "Designs physical products and consumer goods",
+  "jobId": "4767f510-ebbb-4aaa-bf3e-bbf4b219347a"
+}, {
+  "jobDescription": "Automotive Mechanic",
+  "jobLongDescription": "Repairs and maintains automobiles and other vehicles",
+  "jobId": "c4a9fe6b-6171-497d-938d-d02ce85584f9"
+}, {
+  "jobDescription": "Systems Administrator",
+  "jobLongDescription": "Manages and maintains computer systems and servers",
+  "jobId": "f8e501b8-74a3-45c1-9047-5ca3cc480c99"
+}, {
+  "jobDescription": "Environmental Scientist",
+  "jobLongDescription": "Studies the environment and works on conservation and sustainability projects",
+  "jobId": "ebfc5308-619a-4291-be23-b86a2cf6745a"
+}, {
+  "jobDescription": "IT Project Manager",
+  "jobLongDescription": "Leads and manages IT projects from initiation to completion",
+  "jobId": "c6fd3160-2adc-48bc-aa78-ac046269eff7"
+}, {
+  "jobDescription": "Curriculum Developer",
+  "jobLongDescription": "Creates educational content and materials for schools and institutions",
+  "jobId": "1dc62d64-56b7-4739-9d38-f00b5ae03398"
+}, {
+  "jobDescription": "Interior Designer",
+  "jobLongDescription": "Plans and designs interior spaces for homes, offices, and commercial properties",
+  "jobId": "41b83f36-5636-4b7e-b786-35b5c3f7d269"
+}, {
+  "jobDescription": "Industrial Engineer",
+  "jobLongDescription": "Optimizes and improves industrial processes and systems",
+  "jobId": "8cc95022-e85b-470f-857d-ac76a6430570"
+}, {
+  "jobDescription": "Environmental Engineer",
+  "jobLongDescription": "Designs solutions for environmental issues and sustainability",
+  "jobId": "a95471f1-6d1a-4676-8799-ab202be88dab"
+}, {
+  "jobDescription": "Logistics Coordinator",
+  "jobLongDescription": "Manages the movement and distribution of goods and materials",
+  "jobId": "56111d9d-24a7-466b-9008-918c16862607"
+}, {
+  "jobDescription": "Web Designer",
+  "jobLongDescription": "Creates the visual design and layout of websites",
+  "jobId": "5a515231-d92a-441f-a76a-148994d6c6b0"
+}, {
+  "jobDescription": "Research Scientist",
+  "jobLongDescription": "Conducts scientific research in various fields, such as biology, chemistry, or physics",
+  "jobId": "bb945bf2-4936-4e37-8ffa-4f2a8b026b59"
+}, {
+  "jobDescription": "Biotechnologist",
+  "jobLongDescription": "Works in biotechnology research and development",
+  "jobId": "84f0d450-d9a2-45e3-8a26-5f3fb93d4444"
+}, {
+  "jobDescription": "Risk Analyst",
+  "jobLongDescription": "Evaluates and manages financial and business risks",
+  "jobId": "b5f42b1b-e25c-4aeb-9b5a-f33809e9a0db"
+}, {
+  "jobDescription": "Forensic Scientist",
+  "jobLongDescription": "Analyzes evidence in criminal investigations",
+  "jobId": "b7ea6bf0-0a2d-4a64-a552-9cfa3e4db526"
+}, {
+  "jobDescription": "Materials Engineer",
+  "jobLongDescription": "Develops and tests materials for various applications",
+  "jobId": "3c239ace-8f59-4c6e-9826-67d3559415b7"
+}, {
+  "jobDescription": "GIS Analyst",
+  "jobLongDescription": "Works with geographic information systems to analyze and map spatial data",
+  "jobId": "07c96718-c9d3-4235-94fc-54985c58469d"
+}, {
+  "jobDescription": "Radiologic Technologist",
+  "jobLongDescription": "Operates radiographic equipment for medical imaging",
+  "jobId": "46937800-8388-49b2-beeb-e3480b02ca47"
+}, {
+  "jobDescription": "Aerospace Technician",
+  "jobLongDescription": "Assists in the maintenance and repair of aircraft and spacecraft",
+  "jobId": "28c149f7-5a49-40af-94e4-9bb597ed4bed"
+}, {
+  "jobDescription": "Video Game Designer",
+  "jobLongDescription": "Creates concepts and designs for video games",
+  "jobId": "133222cc-2996-4fbb-b7a4-8bc538758b87"
+}, {
+  "jobDescription": "Event Planner",
+  "jobLongDescription": "Organizes and coordinates events, conferences, and parties",
+  "jobId": "b705681f-8217-471b-9554-4a206e684b46"
+}, {
+  "jobDescription": "Environmental Consultant",
+  "jobLongDescription": "Advises organizations on environmental regulations and sustainability",
+  "jobId": "a0ac4f1e-f4c4-44eb-8179-62f74c3bc99e"
+}, {
+  "jobDescription": "Dietitian/Nutritionist",
+  "jobLongDescription": "Provides dietary guidance and nutritional advice to clients",
+  "jobId": "13a6866e-7ee1-4b10-8276-8d21e5f11279"
+}, {
+  "jobDescription": "Speechwriter",
+  "jobLongDescription": "Writes speeches for individuals, politicians, and public figures",
+  "jobId": "2fb20f3c-9c14-4eeb-9551-eb7aa3b8f249"
+}, {
+  "jobDescription": "Sound Engineer",
+  "jobLongDescription": "Works on recording, mixing, and producing audio for various media",
+  "jobId": "b5bbd1c7-0e4e-4830-b0c1-6bb2ccc234ad"
+}, {
+  "jobDescription": "Art Therapist",
+  "jobLongDescription": "Uses art as a therapeutic tool for mental health and wellness",
+  "jobId": "0ee3cd11-597e-4410-a538-842b72fd32a9"
+}, {
+  "jobDescription": "Archaeologist",
+  "jobLongDescription": "Studies human history and prehistory through excavations and analysis",
+  "jobId": "218899d3-e271-43f0-93e7-155f05178c72"
+}, {
+  "jobDescription": "Biomedical Scientist",
+  "jobLongDescription": "Conducts research in medical and healthcare-related fields",
+  "jobId": "c9e6a6b6-018f-45d4-979c-fb6d4cbf81e4"
+}, {
+  "jobDescription": "Meteorologist",
+  "jobLongDescription": "Studies and forecasts weather patterns and atmospheric conditions",
+  "jobId": "f8181465-e227-489d-ae12-8bb04eadf41d"
+}, {
+  "jobDescription": "Video Editor",
+  "jobLongDescription": "Edits and assembles video content for various platforms",
+  "jobId": "bde5e5d0-d676-4519-a21c-8b5385880be3"
+}, {
+  "jobDescription": "Actuary",
+  "jobLongDescription": "Analyzes financial risks and advises on insurance and investment strategies",
+  "jobId": "c779b0ae-7d10-4d87-887d-a00bca130eb1"
+}, {
+  "jobDescription": "Sound Designer",
+  "jobLongDescription": "Creates soundscapes and effects for multimedia and entertainment",
+  "jobId": "6c82c4c7-9f02-409e-b9bb-95a47f67174b"
+}, {
+  "jobDescription": "Occupational Safety Specialist",
+  "jobLongDescription": "Promotes workplace safety and ensures compliance with regulations",
+  "jobId": "ba03ee06-d4b4-4517-b3d8-ab169c78d8d7"
+}, {
+  "jobDescription": "Patent Examiner",
+  "jobLongDescription": "Reviews and evaluates patent applications for intellectual property",
+  "jobId": "2698ce77-54ac-4211-9eab-7df49e1339ea"
+}, {
+  "jobDescription": "UI Designer",
+  "jobLongDescription": "Focuses on user interface design for digital products and applications",
+  "jobId": "b29668e1-0502-4905-97c7-a0d98fab578c"
+}, {
+  "jobDescription": "Zoologist",
+  "jobLongDescription": "Studies animals and their behaviors, habitats, and classifications",
+  "jobId": "8ab92d0b-768b-4283-9fff-a487d539d863"
+}, {
+  "jobDescription": "Archivist",
+  "jobLongDescription": "Manages and preserves historical and cultural records and documents",
+  "jobId": "6d01d6d9-9368-4555-b1b9-4c7ded088da9"
+}, {
+  "jobDescription": "User Experience Researcher",
+  "jobLongDescription": "Conducts user research and usability studies for digital products",
+  "jobId": "5bdfecdf-99ab-4200-a77c-46eb4ea0a35c"
+}, {
+  "jobDescription": "Mechanical Drafter",
+  "jobLongDescription": "Prepares detailed technical drawings and plans for mechanical designs",
+  "jobId": "bbf19d6c-2ef2-43f4-8069-3052af7fc3eb"
+}, {
+  "jobDescription": "Fashion Designer",
+  "jobLongDescription": "Creates clothing and accessories, and follows fashion trends",
+  "jobId": "261362b2-67c0-43d8-b4ea-96f9d49bf7ec"
+}, {
+  "jobDescription": "Animal Behaviorist",
+  "jobLongDescription": "Studies the behavior and interactions of animals",
+  "jobId": "ebca2cb7-0259-4c32-b9a9-2172a9d5f4a1"
+}, {
+  "jobDescription": "Loan Officer",
+  "jobLongDescription": "Assesses and approves loan applications for individuals and businesses",
+  "jobId": "f5a2e599-5cc7-4578-aba8-1247ff80cf09"
+}, {
+  "jobDescription": "Game Tester",
+  "jobLongDescription": "Tests video games for bugs and provides feedback to developers",
+  "jobId": "69e7e519-c845-4fea-8e0d-87d5fbeba690"
+}, {
+  "jobDescription": "Immigration Officer",
+  "jobLongDescription": "Manages immigration processes and enforces immigration laws",
+  "jobId": "a7328cb3-d911-46e9-bae6-8de8dc9d0e12"
+}, {
+  "jobDescription": "Landscape Architect",
+  "jobLongDescription": "Designs outdoor spaces, parks, and landscaping projects",
+  "jobId": "625036ad-9473-469a-9198-9a65e8b36b89"
+}, {
+  "jobDescription": "Ergonomist",
+  "jobLongDescription": "Focuses on designing products and spaces for optimal human use and comfort",
+  "jobId": "f520d702-76e4-450c-90d3-a4b534041d34"
+}, {
+  "jobDescription": "Orthodontist",
+  "jobLongDescription": "Specializes in correcting dental and facial irregularities",
+  "jobId": "3847c346-fb33-49ad-9789-ec8a57e9e18c"
+}, {
+  "jobDescription": "Food Scientist",
+  "jobLongDescription": "Researches and develops food products and processes",
+  "jobId": "662ecba3-6e2d-4d58-bdd7-f6344c6c02f9"
+}, {
+  "jobDescription": "Audio Engineer",
+  "jobLongDescription": "Works on audio recording, mixing, and sound production",
+  "jobId": "932dc7a6-0ffa-4281-926e-3a427f6d8723"
+}, {
+  "jobDescription": "Supply Chain Manager",
+  "jobLongDescription": "Oversees the end-to-end supply chain operations of a business",
+  "jobId": "f9088f14-eccd-4751-a98c-bab9aeb25242"
+}, {
+  "jobDescription": "Industrial Designer",
+  "jobLongDescription": "Creates product designs and prototypes for manufacturing",
+  "jobId": "2f23f076-4cd5-4862-8db0-d773637de6e0"
+}, {
+  "jobDescription": "Film Director",
+  "jobLongDescription": "Leads the creative and technical aspects of film production",
+  "jobId": "0b95803e-70bb-4a8b-8d23-5145d56c753c"
+}, {
+  "jobDescription": "Surveyor",
+  "jobLongDescription": "Measures and maps land and property boundaries",
+  "jobId": "a1f61c58-eaac-44ac-b705-5cad7a336018"
+}, {
+  "jobDescription": "Acupuncturist",
+  "jobLongDescription": "Administers acupuncture for health and wellness",
+  "jobId": "02741e0b-f62d-4ecc-8bf7-cae2850928cc"
+}, {
+  "jobDescription": "Patent Attorney",
+  "jobLongDescription": "Specializes in intellectual property law and patent applications",
+  "jobId": "4872e2e2-1e6b-4c42-a1b7-b58e7400982c"
+}, {
+  "jobDescription": "Urban Planner",
+  "jobLongDescription": "Develops plans and strategies for urban development and growth",
+  "jobId": "08fdfc67-612b-425f-beec-d8a14635650a"
+}, {
+  "jobDescription": "Wedding Planner",
+  "jobLongDescription": "Organizes and coordinates weddings and related events",
+  "jobId": "2f924593-70af-4326-837c-d408725e35d3"
+}, {
+  "jobDescription": "Costume Designer",
+  "jobLongDescription": "Designs costumes for theater, film, and other performances",
+  "jobId": "558d6c0e-7bfe-49df-9dca-6ded7ba5cea3"
+}, {
+  "jobDescription": "Elevator Technician",
+  "jobLongDescription": "Installs, repairs, and maintains elevators and escalators",
+  "jobId": "3b5593e7-822f-4378-acd2-395d98f3a66c"
+}, {
+  "jobDescription": "Forestry Technician",
+  "jobLongDescription": "Manages and conserves forests and natural resources",
+  "jobId": "c3b9ab44-266e-4d74-9a40-601d08ca4696"
+}, {
+  "jobDescription": "Genetic Counselor",
+  "jobLongDescription": "Provides genetic information and counseling to individuals and families",
+  "jobId": "1bf5b690-8504-407b-a9b0-3cbd42a383cc"
+}, {
+  "jobDescription": "Network Engineer",
+  "jobLongDescription": "Designs and manages computer networks and communication systems",
+  "jobId": "33f0b16f-e6c0-46ac-9b3a-ebda1e880921"
+}, {
+  "jobDescription": "Packaging Designer",
+  "jobLongDescription": "Creates packaging designs for consumer products",
+  "jobId": "03f171bc-45b1-4532-acf3-51366fc6f398"
+}, {
+  "jobDescription": "Event Coordinator",
+  "jobLongDescription": "Assists in planning and organizing events and gatherings",
+  "jobId": "0fa9e45d-b7c8-4e96-98cb-06bce8df3589"
+}, {
+  "jobDescription": "Industrial Hygienist",
+  "jobLongDescription": "Ensures workplace health and safety standards are met",
+  "jobId": "d19f363b-2f5e-4326-a211-81041084f18d"
+}, {
+  "jobDescription": "Forensic Accountant",
+  "jobLongDescription": "Investigates financial fraud and white-collar crimes",
+  "jobId": "23b23027-345f-404d-b15c-5dec437516fd"
+}, {
+  "jobDescription": "Horticulturist",
+  "jobLongDescription": "Studies and cultivates plants, gardens, and landscapes",
+  "jobId": "40f7571a-5ad8-4adc-962c-7f44f897beb5"
+}, {
+  "jobDescription": "Crisis Counselor",
+  "jobLongDescription": "Provides support and counseling during crisis and emergency situations",
+  "jobId": "5bab9b84-efc6-42cd-8f33-da2f3b70d600"
+}, {
+  "jobDescription": "Voice Actor",
+  "jobLongDescription": "Provides voices for animated characters, video games, and audio productions",
+  "jobId": "fbf1b143-00cd-4457-a1f5-45a731f1b0c9"
+}, {
+  "jobDescription": "Intellectual Property Consultant",
+  "jobLongDescription": "Advises on patents, trademarks, and copyrights",
+  "jobId": "c4b02a33-c011-4405-bb41-5ba806b291d6"
+}, {
+  "jobDescription": "Virtual Reality Developer",
+  "jobLongDescription": "Creates virtual reality experiences and applications",
+  "jobId": "0442f0d1-2c61-4ba1-a58d-292872f96ef0"
+}, {
+  "jobDescription": "Fitness Trainer/Instructor",
+  "jobLongDescription": "Leads fitness and exercise programs for individuals and groups",
+  "jobId": "48e632aa-9154-4976-ae21-48988af599b3"
+}, {
+  "jobDescription": "Oceanographer",
+  "jobLongDescription": "Studies the oceans, marine life, and environmental conditions",
+  "jobId": "11894feb-9e8d-4078-aaa7-b86b1fe27369"
+}, {
+  "jobDescription": "Behavior Analyst",
+  "jobLongDescription": "Applies behavioral science to assess and improve behavior",
+  "jobId": "37c56bbd-e84d-4e45-a0db-290fb5e7cb5b"
+}, {
+  "jobDescription": "Computer Forensics Analyst",
+  "jobLongDescription": "Investigates cybercrimes and digital evidence",
+  "jobId": "66adcf95-720b-4109-aea9-c4554baf06e0"
+}, {
+  "jobDescription": "Music Therapist",
+  "jobLongDescription": "Uses music for therapeutic purposes and mental health",
+  "jobId": "4e1a20a5-267c-426e-b53c-d1c6eda1fccf"
+}, {
+  "jobDescription": "Prop Master",
+  "jobLongDescription": "Manages props and objects used in film, theater, and television productions",
+  "jobId": "5e1bc19c-9cb5-4399-a4f7-b26ddd116717"
+}, {
+  "jobDescription": "Immigration Lawyer",
+  "jobLongDescription": "Specializes in immigration law and legal services",
+  "jobId": "6acc1ca8-9849-472f-af11-e7758edabffa"
+}, {
+  "jobDescription": "Special Effects Artist",
+  "jobLongDescription": "Creates visual and practical effects for film and entertainment",
+  "jobId": "4246d057-465f-4b42-8017-9e56953d00bf"
+}, {
+  "jobDescription": "Landscape Designer",
+  "jobLongDescription": "Plans and designs outdoor spaces, parks, and residential landscapes",
+  "jobId": "27d010d3-d2c1-439b-a9a3-eb4bd703ee0b"
+}, {
+  "jobDescription": "Marine Engineer",
+  "jobLongDescription": "Designs, builds, and maintains marine vessels and structures",
+  "jobId": "56eab06d-063d-45a8-a90c-82cf108669b2"
+}, {
+  "jobDescription": "Technical Writer",
+  "jobLongDescription": "Creates user manuals, guides, and technical documentation",
+  "jobId": "6d49875d-d28c-427e-818c-2d87fa0d4acf"
+}, {
+  "jobDescription": "Accessibility Consultant",
+  "jobLongDescription": "Advises on making products and services accessible to individuals with disabilities",
+  "jobId": "43283a2f-5688-49d2-b9db-62eda398eb3f"
+}, {
+  "jobDescription": "Flight Attendant",
+  "jobLongDescription": "Ensures the safety and comfort of passengers during air travel",
+  "jobId": "38b097b7-b53f-49a3-971e-6304bf7c1c77"
+}, {
+  "jobDescription": "Disaster Recovery Specialist",
+  "jobLongDescription": "Plans and implements disaster recovery strategies for businesses",
+  "jobId": "dbafec31-93a1-4225-8b0b-fac328b3fd3d"
+}, {
+  "jobDescription": "User Interface Developer",
+  "jobLongDescription": "Focuses on creating interactive web interfaces and user experiences",
+  "jobId": "3d580082-328c-4363-9be8-0f0249cddd74"
+}, {
+  "jobDescription": "Museum Curator",
+  "jobLongDescription": "Manages and curates collections and exhibits in museums",
+  "jobId": "b8f90e0a-6673-43f7-8688-9c686c3ec9c2"
+}, {
+  "jobDescription": "Criminal Psychologist",
+  "jobLongDescription": "Assesses and profiles criminal behavior and psychology",
+  "jobId": "06f1add5-31e6-4869-b589-139369784a18"
+}, {
+  "jobDescription": "Winemaker",
+  "jobLongDescription": "Produces and oversees the production of wines and winemaking processes",
+  "jobId": "e99b729b-791f-4d60-94f5-97871b3e8ef3"
+}, {
+  "jobDescription": "Game Developer",
+  "jobLongDescription": "Creates and develops video games for various platforms",
+  "jobId": "2031bf56-e60c-43d5-8e76-a49eebf8b402"
+}]

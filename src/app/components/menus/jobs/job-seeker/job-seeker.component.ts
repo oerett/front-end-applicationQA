@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { JobSeekerService } from './job-seeker.service';
 
 @Component({
   selector: 'app-job-seeker',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./job-seeker.component.scss']
 })
 export class JobSeekerComponent {
+  jobs: any = [];
+  searchTerm: string = "";
+  
+  constructor(private jobSeekerService: JobSeekerService) {
+
+  }
+
+  ngOnInit() {
+    this.jobSeekerService.getJobs().subscribe(data => {
+      this.jobs = data;
+    });
+  }
+
+
 
 }

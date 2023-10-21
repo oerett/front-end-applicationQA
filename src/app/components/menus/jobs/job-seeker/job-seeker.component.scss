@@ -1,0 +1,71 @@
+#job-seeker {
+  @import 'src/app/shared/scss/helpers';
+
+  overflow: hidden;
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 15px;
+    margin-top: 55px;
+  }
+
+  .card {
+    flex-basis: calc(25% - 20px);
+    max-width: 290px;
+    height: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  .card-content {
+    word-wrap: break-word;
+  }
+
+  .search-container {
+    padding: 10px 10px 10px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1040;
+    background: white;
+  }
+
+  .search-container input {
+    width: 33%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .job-description {
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 0 10px;
+  }
+
+  .job-long-description {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Responsive breakpoints */
+  @media only screen and (max-width: 992px) {
+    .card {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .card {
+      flex-basis: 100%;
+    }
+  }
+
+}

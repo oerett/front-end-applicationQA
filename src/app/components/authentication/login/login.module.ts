@@ -20,16 +20,16 @@ const routes = [
 @NgModule({
     declarations: [LoginComponent],
     imports: [
-        MatCardModule,
         CommonModule,
-        RouterModule.forChild(routes),
         FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        RouterModule.forChild(routes),
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-        ReactiveFormsModule,
     ],
     exports: []
 })

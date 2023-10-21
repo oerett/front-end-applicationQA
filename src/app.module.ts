@@ -24,6 +24,8 @@ import { getApps, initializeApp } from 'firebase/app';
 import { provideFirebaseApp, getApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
+import { HttpClientModule } from '@angular/common/http';
+import { JobFilterPipe } from './app/shared/pipes/jobs-filter.pipe';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -55,7 +57,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
 @NgModule({
   declarations: [
     AppComponent,
-    DialogV2Component,
+    DialogV2Component
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -77,6 +79,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    HttpClientModule,
   ],
   providers: [AngularFirestoreModule
     // AngularFirestore
