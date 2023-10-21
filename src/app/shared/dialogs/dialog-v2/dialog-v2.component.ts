@@ -11,7 +11,6 @@ export class DialogV2Component {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data, "gonna cri")
   }
 
   getClass(titleBg: string): string {
@@ -19,7 +18,6 @@ export class DialogV2Component {
       red: 'title red',
       blue: 'title blue'
     };
-    console.log(classes[titleBg])
     return classes.titleBg || '';
   }
 

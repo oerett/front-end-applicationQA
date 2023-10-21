@@ -18,9 +18,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoginComponent } from './app/components/authentication/login/login.component';
 import { getApps, initializeApp } from 'firebase/app';
+import { provideFirebaseApp, getApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase/app';
+
+firebase.initializeApp(environment.firebaseConfig);
 
 const appRoutes: Routes = [
   {
@@ -42,8 +47,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
         initializeApp(environment.firebaseConfig);
         resolve(true);
       } else {
-        console.log('Firebase is already initialized.');
-        resolve(true);  // You probably want to resolve here too, since it's not a fatal error.
+        resolve(true);
       }
     });
   }
@@ -54,7 +58,8 @@ export function initializeFirebaseApp(): () => Promise<any> {
     DialogV2Component,
   ],
   imports: [
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
@@ -73,12 +78,13 @@ export function initializeFirebaseApp(): () => Promise<any> {
     MatSelectModule,
     MatTooltipModule,
   ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeFirebaseApp,
-      multi: true
-    }
+  providers: [AngularFirestoreModule
+    // AngularFirestore
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializeFirebaseApp,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

@@ -12,10 +12,6 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (getApps().length === 0) {
-      console.log('Firebase has not been initialized (app Comp)');
-    } else {
-      console.log('Firebase has been initialized (app Comp)');
-    }
+   
   }
 }

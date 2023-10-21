@@ -34,7 +34,6 @@ export class RegisterComponent {
   }
 
   async registerUser(form: FormGroup) {
-    // console.log(initializeApp(environment.firebaseConfig), "firebaseConfig");
     const auth = getAuth();
     from(createUserWithEmailAndPassword(auth, form.value['email'], form.value['password'])).subscribe({
       next: userCredential => {

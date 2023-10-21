@@ -37,33 +37,32 @@ export class LoginComponent {
   }
 
   async loginApicall(form: FormGroup) {
-    // const auth = getAuth();
-    // from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
-    //   const user = userCredential.user;
-    //   const userDocRef = this.firestore.collection('users').doc(user['uid']);
-    //   return userDocRef.valueChanges().pipe(
-    //     map(userData => ({ user, userData }))
-    //   );
-    // })).subscribe({
-    //   next: ({ user, userData }: any) => {
-    //     let role = "";
-    //     if (userData) {
-    //       role = userData['role'];
-    //     }
-    //     console.log(role, "ROLIIII");
-    //     localStorage.setItem("isAuthenticated", "true");
-    //     this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
-    //       role == "js" ? this.router.navigate(["/jobs/job-seeker"]) : this.router.navigate(["/jobs/job-offer"]);
-    //     }).catch(error => {
-    //       this._dialog.openErrorDialogV2("Error", error, '', '');
-    //     });
-    //   },
-    //   error: error => {
-    //     if (error.code == "auth/invalid-login-credentials") {
-    //       this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
-    //     }
-    //   }
-    // });
+    const auth = getAuth();
+    from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
+      const user = userCredential.user;
+      const userDocRef = this.firestore.collection('users').doc(user['uid']);
+      return userDocRef.valueChanges().pipe(
+        map(userData => ({ user, userData }))
+      );
+    })).subscribe({
+      next: ({ user, userData }: any) => {
+        let role = "";
+        if (userData) {
+          role = userData['role'];
+        }
+        localStorage.setItem("isAuthenticated", "true");
+        this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
+          role == "js" ? this.router.navigate(["/jobs/job-seeker"]) : this.router.navigate(["/jobs/job-offer"]);
+        }).catch(error => {
+          this._dialog.openErrorDialogV2("Error", error, '', '');
+        });
+      },
+      error: error => {
+        if (error.code == "auth/invalid-login-credentials") {
+          this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
+        }
+      }
+    });
   }
 
 
