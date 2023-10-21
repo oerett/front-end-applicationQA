@@ -18,7 +18,7 @@ export class DialogV2Component {
       red: 'title red',
       blue: 'title blue'
     };
-    return classes.titleBg || '';
+    return classes[titleBg] || '';
   }
 
 }
