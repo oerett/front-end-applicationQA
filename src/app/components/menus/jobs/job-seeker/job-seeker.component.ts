@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { JobSeekerService } from './job-seeker.service';
+import { Store } from '@ngrx/store';
+import { addFavoriteJob, removeFavoriteJob } from './favorite-job.actions';
 
 @Component({
   selector: 'app-job-seeker',
@@ -12,7 +13,9 @@ export class JobSeekerComponent {
   searchTerm: string = "";
   favorites: boolean[] = [];
 
-  constructor(private jobSeekerService: JobSeekerService) {
+  constructor(
+    private jobSeekerService: JobSeekerService,
+    private store: Store) {
 
   }
 
@@ -22,11 +25,13 @@ export class JobSeekerComponent {
     });
   }
 
-  favourite(action: number, index: number) {
+  favourite(action: number, index: number, job: any) {
     if (action === 1) {
       this.favorites[index] = true;
+      this.store.dispatch(addFavoriteJob({ job }));
     } else {
-      this.favorites[index] = false;
+      this.favorites[index] = false; 
+      this.store.dispatch(removeFavoriteJob({ job }));
     }
   }
 

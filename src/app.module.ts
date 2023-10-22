@@ -28,6 +28,8 @@ import * as firebase from 'firebase/app';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarModule } from './app/layout/components/toolbar/toolbar.module';
 import { DashboardComponent } from './app/components/menus/dashboard/dashboard.component';
+import { StoreModule } from '@ngrx/store';
+import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -74,6 +76,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
+    StoreModule.forRoot({ favoriteJobs: favoriteJobReducer }),
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,

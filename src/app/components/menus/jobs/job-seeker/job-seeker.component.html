@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="job-description">{{job.jobDescription}}
                     <mat-icon matSuffix class="pointer" *ngIf="favorites[i]"
-                        (click)="favourite(0, i)">favorite</mat-icon>
+                        (click)="favourite(0, i, job)">favorite</mat-icon>
                     <mat-icon matSuffix class="pointer" *ngIf="!favorites[i]"
-                        (click)="favourite(1, i)">favorite_border</mat-icon>
+                        (click)="favourite(1, i, job)">favorite_border</mat-icon>
                 </div>
                 <div class="job-long-description">{{job.jobLongDescription}}</div>
             </div>
