@@ -6,7 +6,7 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { from, map, switchMap } from 'rxjs';
+import { debounceTime, from, map, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -17,6 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  rememberMe: boolean = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -29,11 +30,25 @@ export class LoginComponent {
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false, [Validators.required, Validators.minLength(6)]],
     });
   }
 
   ngOnInit() {
+    const rememberedEmail = localStorage.getItem('rememberedEmail');
+    if (rememberedEmail) {
+      this.loginForm.controls['email'].setValue(rememberedEmail);
+      this.loginForm.controls['rememberMe'].setValue(true);
+      this.rememberMe = true;
+    }
+
+    // Subscribe to email control value changes
+    this.loginForm.controls['email'].valueChanges.pipe(debounceTime(300)).subscribe(newEmail => {
+      if (this.loginForm.controls['rememberMe'].value == true) {
+        localStorage.setItem('rememberedEmail', newEmail);
+      }
+    });
   }
 
   loginUser(form: FormGroup) {
@@ -84,6 +99,13 @@ export class LoginComponent {
   }
 
   rememberMeEvent(ev: MatCheckboxChange) {
-    console.log(ev.checked);
+    if (ev.checked) {
+      // Save the email to localStorage.
+      localStorage.setItem('rememberedEmail', this.loginForm.value.email);
+    } else {
+      // Remove the email from localStorage.
+      localStorage.removeItem('rememberedEmail');
+    }
   }
+
 }

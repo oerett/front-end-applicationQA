@@ -1,23 +1,22 @@
 #card-dialog-v2 {
 
   .title {
-    padding: 10px 10px 10px 20px !important;
+    padding: 5px 10px 0px 20px;
     font-weight: 100;
     color: white;
     font-size: 18px;
-    padding: 20px;
+  }
 
-    .red {
-      background-color: #f5564a;
-    }
+  .blue {
+    background-color: #1A78C2;
+  }
 
-    .blue {
-      background-color: #1A78C2;
-    }
+  .red {
+    background-color: #f5564a;
   }
 
   .content-data {
-    padding: 0px 20px 0px 20px;
+    padding: 20px 20px 0px 20px;
     max-width: 100%;
     word-wrap: break-word;
 

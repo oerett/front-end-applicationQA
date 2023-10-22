@@ -19,8 +19,10 @@
             <mat-error class="invalid-password" *ngIf="loginForm.get('password')?.hasError('minlength')">
                 Password must be at least 6 characters long.
             </mat-error>
-            <div>
-                Remember me <mat-checkbox (change)="rememberMeEvent($event)"></mat-checkbox>
+            <div class="remember-me">
+                <!-- <mat-checkbox (change)="rememberMeEvent($event)"></mat-checkbox> -->
+                <mat-checkbox formControlName="rememberMe" [checked]="rememberMe"
+                    (change)="rememberMeEvent($event)">Remember me</mat-checkbox>
             </div>
             <div class="register-info">
                 Don't have an account?

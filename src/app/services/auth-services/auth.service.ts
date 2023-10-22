@@ -23,12 +23,18 @@ export class AuthService {
     }
 
     logout() {
-        localStorage.clear();
+        this.clearStorage();
         this._isAuthenticated.next(false);
         this.router.navigateByUrl("/auth/login", {
             replaceUrl: true,
         });
     }
 
-
+    clearStorage() {
+        const keys = Object.keys(localStorage);
+        for (const key of keys) {
+            if (key !== 'rememberedEmail')
+                localStorage.removeItem(key);
+        }
+    }
 }

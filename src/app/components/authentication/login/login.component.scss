@@ -8,7 +8,8 @@
 
   .mat-mdc-card {
     background-color: white;
-    max-width: 70%;
+    max-width: 100%;
+    min-width: 30%;
   }
 
   .login-form {
@@ -37,6 +38,12 @@
 
   .register-info {
     font-size: 12px;
+    text-align: center;
+  }
+
+  .remember-me {
+    font-size: 12px;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif !important;
     text-align: center;
   }
 
