@@ -25,13 +25,14 @@ export class AuthService {
 
     async logout() {
         try {
-            localStorage.setItem("isAuthenticated", "false");
-            this.router.navigate(["/auth/login"]);
             await this.afAuth.signOut();
             this._isAuthenticated.next(false);
-            localStorage.clear();
+            localStorage.setItem('isAuthenticated', 'false');
+            this.router.navigate(["/auth/login"]);
         } catch (error) {
             console.error('Error during sign out:', error);
         }
     }
+
+
 }

@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const routes = [
     {
@@ -30,6 +31,7 @@ const routes = [
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
+        NgxSpinnerModule,
     ],
     exports: []
 })

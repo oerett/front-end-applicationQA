@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
 
@@ -9,16 +9,19 @@ import { AuthService } from 'src/app/services/auth-services/auth.service';
 })
 export class ToolbarComponent {
   username: string = "";
+  isAuthenticated: boolean = false;
   constructor(public authService: AuthService,
+    private cdRef: ChangeDetectorRef,
     private router: Router) {
   }
 
   ngOnInit() {
-    console.log(localStorage.getItem('username'), "yes")
     this.username = localStorage.getItem('username') as string;
+    this.isAuthenticated = localStorage.getItem('isAuthenticated') as any;
   }
 
   logOut() {
     this.authService.logout();
+    this.cdRef.detectChanges();
   }
 }

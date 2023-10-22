@@ -8,6 +8,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { from, map, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent {
     private router: Router,
     private _dialog: DialogService,
     private firestore: AngularFirestore,
-    private _isAuthenticated: AuthService
+    private _isAuthenticated: AuthService,
+    private spinner: NgxSpinnerService,
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
@@ -39,6 +41,7 @@ export class LoginComponent {
   }
 
   async loginApicall(form: FormGroup) {
+    this.spinner.show();
     const auth = getAuth();
     from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
       const user = userCredential.user;
@@ -62,10 +65,12 @@ export class LoginComponent {
         }).catch(error => {
           this._dialog.openErrorDialogV2("Error", error, '', '');
         });
+        this.spinner.hide();
       },
       error: error => {
         this._isAuthenticated.logout();
         if (error.code == "auth/invalid-login-credentials") {
+          this.spinner.hide();
           this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
         }
       }

@@ -13,11 +13,11 @@ const routes: Routes = [
         path: "",
         data: { breadcrumb: "Job seeker" },
         children: [
-            //     {
-            //         path: "",
-            //         redirectTo: "/dashboard",
-            //         pathMatch: "full",
-            //     },
+            {
+                path: "",
+                redirectTo: "/dashboard",
+                pathMatch: "full",
+            },
             {
                 path: "",
                 component: JobSeekerComponent,
@@ -65,11 +65,11 @@ const routes: Routes = [
         path: "",
         data: { breadcrumb: "Job offer" },
         children: [
-            //     {
-            //         path: "",
-            //         redirectTo: "/dashboard",
-            //         pathMatch: "full",
-            //     },
+            {
+                path: "",
+                redirectTo: "/dashboard",
+                pathMatch: "full",
+            },
             {
                 path: "",
                 component: JobOfferComponent,
@@ -87,27 +87,6 @@ const routes: Routes = [
                             breadcrumb: null,
                         },
                     },
-                    // {
-                    //     path: "detail",
-                    //     component: CardsDetailsComponent,
-                    //     data: {
-                    //         breadcrumb: "Detaje",
-                    //     },
-                    // },
-                    // {
-                    //     path: "modify",
-                    //     component: MasterdataModifyComponent,
-                    //     data: {
-                    //         breadcrumb: "Modifiko",
-                    //     },
-                    // },
-                    // {
-                    //     path: "add",
-                    //     component: MasterdataModifyComponent,
-                    //     data: {
-                    //         breadcrumb: "Shto",
-                    //     },
-                    // },
                 ],
                 canActivate: [AuthGuardService],
             },
