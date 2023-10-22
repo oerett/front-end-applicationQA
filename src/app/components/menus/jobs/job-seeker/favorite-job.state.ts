@@ -1,11 +1,12 @@
 export interface FavoriteJobState {
     favoriteJobs: any[];
+    favorites: boolean[];
 }
 
 export const initialFavoriteJobState: FavoriteJobState = {
-    favoriteJobs: []
+    favoriteJobs: [],
+    favorites: []
 };
-
 
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
@@ -16,4 +17,10 @@ export const selectFavoriteJobFeature = createFeatureSelector<FavoriteJobState>(
 export const selectFavoriteJobs = createSelector(
     selectFavoriteJobFeature,
     (state: FavoriteJobState) => state.favoriteJobs
+);
+
+// Selector for favorites boolean array
+export const selectFavorites = createSelector(
+    selectFavoriteJobFeature,
+    (state: FavoriteJobState) => state.favorites
 );

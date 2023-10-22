@@ -21,17 +21,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { LoginComponent } from './app/components/authentication/login/login.component';
 import { getApps, initializeApp } from 'firebase/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarModule } from './app/layout/components/toolbar/toolbar.module';
-import { DashboardComponent } from './app/components/menus/dashboard/dashboard.component';
 import { StoreModule } from '@ngrx/store';
 import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
+import { localStorageSync } from 'ngrx-store-localstorage';
+import { ActionReducer, MetaReducer } from '@ngrx/store';
 
 firebase.initializeApp(environment.firebaseConfig);
+
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ keys: ['favoriteJobs'], rehydrate: true })(reducer);
+}
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
 
 const appRoutes: Routes = [
   {
@@ -76,7 +82,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
-    StoreModule.forRoot({ favoriteJobs: favoriteJobReducer }),
+    StoreModule.forRoot({ favoriteJobs: favoriteJobReducer }, { metaReducers }),
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
@@ -96,7 +102,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
-    ToolbarModule
+    ToolbarModule,
   ],
   providers: [
     AngularFirestoreModule
