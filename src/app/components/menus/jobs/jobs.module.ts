@@ -6,6 +6,7 @@ import { JobSeekerComponent } from "./job-seeker/job-seeker.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { JobFilterPipe } from "src/app/shared/pipes/jobs-filter.pipe";
+import { ProfileComponent } from './job-seeker/profile/profile.component';
 
 const routes: Routes = [
     {
@@ -119,6 +120,7 @@ const routes: Routes = [
         JobOfferComponent,
         JobSeekerComponent,
         JobFilterPipe,
+        ProfileComponent,
     ],
     imports: [
         CommonModule,

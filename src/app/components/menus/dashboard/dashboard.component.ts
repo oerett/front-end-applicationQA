@@ -9,14 +9,10 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent {
   role: string = "";
 
-  constructor(
-    private dashboardService: DashboardService
-  ) {
-
+  constructor() {
   }
 
   ngOnInit() {
     this.role = localStorage.getItem('role') as string;
-    console.log(this.role, "ROLI")
   }
 }

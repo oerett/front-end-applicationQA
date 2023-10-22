@@ -1,35 +1,37 @@
 import { Injectable } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { Router } from "@angular/router";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: "root",
 })
 export class AuthService {
+    private _isAuthenticated = new BehaviorSubject<boolean>(false);
 
+    constructor(private afAuth: AngularFireAuth,
+        private router: Router) {
+
+    }
+
+    get isAuthenticated() {
+        return this._isAuthenticated.asObservable();
+    }
 
     login() {
-        // return this.http.post(`${environment.url}Auth/login`, user, {
-        //     observe: "response",
-        //     headers: new HttpHeaders({ "Content-Type": "application/json" }),
-        // });
+        // Logic for login
+        this._isAuthenticated.next(true);
     }
 
-    checkCode() {
-        // return this.http.post(`${environment.url}Auth/checkcode`, code, {
-        //     headers: new HttpHeaders({ "Content-Type": "application/json" }),
-        // });
+    async logout() {
+        try {
+            localStorage.setItem("isAuthenticated", "false");
+            this.router.navigate(["/auth/login"]);
+            await this.afAuth.signOut();
+            this._isAuthenticated.next(false);
+            localStorage.clear();
+        } catch (error) {
+            console.error('Error during sign out:', error);
+        }
     }
-
-    logout() {
-        // this.fbLocalstorageClear();
-        // this.authenticationState.next(false);
-        // this.codeAuthenticationState.next(false);
-        // this.router.navigateByUrl("/auth/login", {
-        //     replaceUrl: true,
-        // });
-    }
-
-    isCodeAuthenticated(){
-        
-    }
-
 }

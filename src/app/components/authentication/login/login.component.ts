@@ -7,6 +7,7 @@ import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { from, map, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent {
     private sharedService: SharedService,
     private router: Router,
     private _dialog: DialogService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private _isAuthenticated: AuthService
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
@@ -54,6 +56,7 @@ export class LoginComponent {
         localStorage.setItem("email", `${userData['email']}`);
         localStorage.setItem("username", `${userData['username']}`);
         this.router.navigate(["/dashboard"]);
+        this._isAuthenticated.login();
         this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
           if (role == "js") localStorage.setItem("role", "js");
         }).catch(error => {
@@ -61,6 +64,7 @@ export class LoginComponent {
         });
       },
       error: error => {
+        this._isAuthenticated.logout();
         if (error.code == "auth/invalid-login-credentials") {
           this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
         }

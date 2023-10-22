@@ -1,21 +1,19 @@
-<div id="toolbar">
+<div id="toolbar" *ngIf="authService.isAuthenticated | async">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <span class="title-info">Job seeker panel</span>
             <span class="menu-spacer"></span>
+            <span>{{username}}</span>
             <div fxShow="true" fxHide.lt-md class="profile-menu">
                 <button mat-icon-button [matMenuTriggerFor]="moreOptions" aria-label="more">
-
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
                 <mat-menu #moreOptions="matMenu">
                     <button mat-menu-item>
-                        <mat-icon></mat-icon>
-                        <span></span>
+                        <span>Profile</span>
                     </button>
-                    <button mat-menu-item>
-                        <mat-icon>info</mat-icon>
-                        <span></span>
+                    <button mat-menu-item (click)="logOut()">
+                        <span>Logout</span>
                     </button>
                 </mat-menu>
             </div>

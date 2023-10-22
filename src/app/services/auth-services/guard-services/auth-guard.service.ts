@@ -10,14 +10,14 @@ export class AuthGuardService {
     constructor(private router: Router) {
     }
 
-    canActivate() {
-        let authenticated: boolean = false;
-        let storedValue = localStorage.getItem('isAuthenticated');
-        if (storedValue !== null) {
-            authenticated = JSON.parse(storedValue);
+    canActivate(): boolean {
+        if (JSON.parse(localStorage.getItem('isAuthenticated') as string) == true) {
             return true;
         } else {
-            return this.router.navigate(['/auth/login']);
+            this.router.navigateByUrl('/auth/login', {
+                replaceUrl: true
+            });
+            return false;
         }
     }
 }

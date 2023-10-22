@@ -93,13 +93,8 @@ export function initializeFirebaseApp(): () => Promise<any> {
     MatSidenavModule,
     ToolbarModule
   ],
-  providers: [AngularFirestoreModule
-    // AngularFirestore
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: initializeFirebaseApp,
-    //   multi: true
-    // }
+  providers: [
+    AngularFirestoreModule
   ],
   bootstrap: [AppComponent]
 })
