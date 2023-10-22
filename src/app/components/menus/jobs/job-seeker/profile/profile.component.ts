@@ -40,7 +40,6 @@ export class ProfileComponent {
   ngOnInit() {
     this.favoriteJobs$.subscribe((favJobs) => {
       this.favourites = favJobs;
-      console.log(this.favourites, "Eree")
     });
     this.getJobsApplied();
   }
