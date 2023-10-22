@@ -2,11 +2,22 @@
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <span class="title-info">Job seeker panel</span>
+            <mat-toolbar-row>
+                <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index; let last = last">
+                    <span *ngIf="breadcrumb.label == 'dashboard'" class="anchor crumb-info"
+                        [routerLink]="breadcrumb.url">
+                        <mat-icon class="home-icon" matSuffix>home</mat-icon>
+                    </span>
+                    <span *ngIf="breadcrumb.label != 'dashboard'" class="anchor crumb-info"
+                        [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</span>
+                    <span *ngIf="!last"> / </span>
+                </ng-container>
+            </mat-toolbar-row>
             <span class="menu-spacer"></span>
-            <span>{{username}}</span>
+            <span class="title-info">{{username}}</span>
             <div fxShow="true" fxHide.lt-md class="profile-menu">
                 <button mat-icon-button [matMenuTriggerFor]="moreOptions" aria-label="more">
-                    <mat-icon>keyboard_arrow_down</mat-icon>
+                    <mat-icon matSuffix class="arrow-down-icon">keyboard_arrow_down</mat-icon>
                 </button>
                 <mat-menu #moreOptions="matMenu">
                     <button mat-menu-item (click)="goToProfile()">

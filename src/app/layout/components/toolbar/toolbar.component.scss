@@ -1,8 +1,9 @@
 #toolbar {
+  @import 'src/app/shared/scss/helpers';
 
-  // height: 100%;
   .title-info {
     font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 16px;
   }
 
   .mat-toolbar {
@@ -12,5 +13,23 @@
 
   .menu-spacer {
     width: 100%;
+  }
+
+  .anchor {
+    color: white;
+    text-decoration-color: white;
+  }
+
+  .crumb-info {
+    font-size: 14px;
+  }
+
+  .home-icon {
+    color: white;
+    padding-top: 9px;
+  }
+
+  .arrow-down-icon {
+    color: white;
   }
 }

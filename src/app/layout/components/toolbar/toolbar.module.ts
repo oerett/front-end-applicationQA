@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         MatCardModule,
         MatSlideToggleModule,
         MatSidenavModule,
+        RouterModule,
         FormsModule
     ],
     exports: [

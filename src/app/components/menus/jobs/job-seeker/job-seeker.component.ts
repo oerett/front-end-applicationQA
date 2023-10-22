@@ -5,12 +5,12 @@ import { addFavoriteJob, removeFavoriteJob, updateFavoritesArray } from './favor
 import { selectFavoriteJobs } from './favorite-job.state';
 import * as fromFavoriteJob from './favorite-job.state';
 
-
 @Component({
   selector: 'app-job-seeker',
   templateUrl: './job-seeker.component.html',
   styleUrls: ['./job-seeker.component.scss']
 })
+
 export class JobSeekerComponent {
   jobs: any = [];
   searchTerm: string = "";
@@ -19,7 +19,6 @@ export class JobSeekerComponent {
 
   constructor(
     private jobSeekerService: JobSeekerService,
-    private storefav: Store<{ favoriteJobs: { favorites: boolean[] } }>,
     private store: Store) {
     this.store.select(fromFavoriteJob.selectFavorites).subscribe(res => {
       if (res.length != 0)
@@ -34,8 +33,8 @@ export class JobSeekerComponent {
     });
 
     this.store.select(selectFavoriteJobs).subscribe(favJobs => {
-      this.favoriteJobs = [...favJobs];  // copy to ensure no direct mutation
-      this.setFavoritesArray();  // update favorites array whenever favoriteJobs change
+      this.favoriteJobs = [...favJobs];
+      this.setFavoritesArray();
     });
   }
 
@@ -49,7 +48,6 @@ export class JobSeekerComponent {
 
   favourite(action: number, index: number, job: any) {
     const newFavorites = [...this.favorites];  // copy to ensure no direct mutation
-
     if (action === 1) {
       newFavorites[index] = true;
       this.store.dispatch(addFavoriteJob({ job }));
@@ -57,8 +55,6 @@ export class JobSeekerComponent {
       newFavorites[index] = false;
       this.store.dispatch(removeFavoriteJob({ job }));
     }
-
     this.favorites = newFavorites;
-    console.log(this.favorites, "please?")
   }
 }

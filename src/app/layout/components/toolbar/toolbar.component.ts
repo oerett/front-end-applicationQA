@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
+import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-service'; // adjust path
 
 @Component({
   selector: 'app-toolbar',
@@ -9,20 +11,23 @@ import { AuthService } from 'src/app/services/auth-services/auth.service';
 })
 export class ToolbarComponent {
   username: string = "";
+  breadcrumbs$: Observable<Breadcrumb[]>;
 
   constructor(
     public authService: AuthService,
     private cdRef: ChangeDetectorRef,
     private router: Router,
+    private breadcrumbService: BreadcrumbService
   ) {
+    this.breadcrumbs$ = this.breadcrumbService.breadcrumbs;
   }
 
   ngOnInit() {
-    this.username = localStorage.getItem('username') as string;
+    this.username = localStorage.getItem('email') as string;
   }
 
   goToProfile() {
-    this.router.navigate(['/dashboard/job-seeker/profile'])
+    this.router.navigate(['/dashboard/job-seeker/profile']);
   }
 
   logOut() {
