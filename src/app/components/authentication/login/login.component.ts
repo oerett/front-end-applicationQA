@@ -51,6 +51,7 @@ export class LoginComponent {
       );
     })).subscribe({
       next: ({ user, userData }: any) => {
+        this._isAuthenticated.setAuth();
         let role = "";
         if (userData) {
           role = userData['role'];
@@ -59,10 +60,10 @@ export class LoginComponent {
         localStorage.setItem("email", `${userData['email']}`);
         localStorage.setItem("username", `${userData['username']}`);
         this.router.navigate(["/dashboard"]);
-        this._isAuthenticated.login();
         this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
           if (role == "js") localStorage.setItem("role", "js");
         }).catch(error => {
+          this._isAuthenticated.logout();
           this._dialog.openErrorDialogV2("Error", error, '', '');
         });
         this.spinner.hide();

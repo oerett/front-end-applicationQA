@@ -9,8 +9,9 @@ import { AuthService } from 'src/app/services/auth-services/auth.service';
 })
 export class ToolbarComponent {
   username: string = "";
-  isAuthenticated: boolean = false;
-  constructor(public authService: AuthService) {
+  
+  constructor(public authService: AuthService,
+    private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -19,5 +20,6 @@ export class ToolbarComponent {
 
   logOut() {
     this.authService.logout();
+    this.cdRef.detectChanges();
   }
 }

@@ -1,4 +1,4 @@
-<div id="toolbar" *ngIf="authService.isAuthenticated | async">
+<div id="toolbar" *ngIf="(authService.isAuthenticated | async)">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <span class="title-info">Job seeker panel</span>

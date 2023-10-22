@@ -27,6 +27,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarModule } from './app/layout/components/toolbar/toolbar.module';
+import { DashboardComponent } from './app/components/menus/dashboard/dashboard.component';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     path: "**",
     redirectTo: "dashboard",
   },
+  // { path: '', component: DashboardComponent, canActivate: [AuthGuardService] },
 ];
 
 export function initializeFirebaseApp(): () => Promise<any> {
