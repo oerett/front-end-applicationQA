@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +10,8 @@ import { environment } from "./environments/environment";
 import { DialogV2Component } from './app/shared/dialogs/dialog-v2/dialog-v2.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -18,14 +20,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoginComponent } from './app/components/authentication/login/login.component';
 import { getApps, initializeApp } from 'firebase/app';
-import { provideFirebaseApp, getApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { HttpClientModule } from '@angular/common/http';
-import { JobFilterPipe } from './app/shared/pipes/jobs-filter.pipe';
+import { ToolbarModule } from './app/layout/components/toolbar/toolbar.module';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -35,11 +36,19 @@ const appRoutes: Routes = [
     loadChildren: () => import('./app/components/authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
+    path: "dashboard",
+    loadChildren: () => import('./app/components/menus/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuardService],
+  },
+  {
     path: "jobs",
     loadChildren: () => import('./app/components/menus/jobs/jobs.module').then(m => m.JobsModule),
     canActivate: [AuthGuardService],
   },
-  { path: '', component: LoginComponent, canActivate: [AuthGuardService] },
+  {
+    path: "**",
+    redirectTo: "dashboard",
+  },
 ];
 
 export function initializeFirebaseApp(): () => Promise<any> {
@@ -57,7 +66,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
 @NgModule({
   declarations: [
     AppComponent,
-    DialogV2Component
+    DialogV2Component,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -80,6 +89,9 @@ export function initializeFirebaseApp(): () => Promise<any> {
     MatSelectModule,
     MatTooltipModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    ToolbarModule
   ],
   providers: [AngularFirestoreModule
     // AngularFirestore

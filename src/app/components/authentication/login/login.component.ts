@@ -51,8 +51,11 @@ export class LoginComponent {
           role = userData['role'];
         }
         localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("email", `${userData['email']}`);
+        localStorage.setItem("username", `${userData['username']}`);
+        this.router.navigate(["/dashboard"]);
         this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
-          role == "js" ? this.router.navigate(["/jobs/job-seeker"]) : this.router.navigate(["/jobs/job-offer"]);
+          if (role == "js") localStorage.setItem("role", "js");
         }).catch(error => {
           this._dialog.openErrorDialogV2("Error", error, '', '');
         });

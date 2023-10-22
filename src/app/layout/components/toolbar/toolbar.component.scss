@@ -1,0 +1,17 @@
+#toolbar {
+
+  // height: 100%;
+  .title-info {
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  .mat-toolbar {
+    position: fixed;
+    z-index: 1040;
+  }
+
+  .profile-menu {
+    position: absolute;
+    right: 10px;
+  }
+}

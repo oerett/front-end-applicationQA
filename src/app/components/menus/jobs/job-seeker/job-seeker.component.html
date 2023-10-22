@@ -1,13 +1,13 @@
 <div id="job-seeker" class="page-layout">
-        <div class="search-container">
-            <input type="text" placeholder="Search for a job..." [(ngModel)]="searchTerm">
-        </div>
-        <div class="card-container">
-            <div *ngFor="let job of jobs | jobFilter:searchTerm;; let i = index">
-                <div class="card">
-                    <div class="job-description">{{job.jobDescription}}</div>
-                    <div class="job-long-description">{{job.jobLongDescription}}</div>
-                </div>
+    <div class="search-container">
+        <input type="text" placeholder="Search for a job..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="card-container">
+        <div *ngFor="let job of jobs | jobFilter:searchTerm;; let i = index">
+            <div class="card">
+                <div class="job-description">{{job.jobDescription}}</div>
+                <div class="job-long-description">{{job.jobLongDescription}}</div>
             </div>
         </div>
+    </div>
 </div>

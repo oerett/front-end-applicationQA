@@ -126,7 +126,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(routes),
     ],
-    exports: [],
+    exports: [JobSeekerComponent, JobOfferComponent],
     providers: [],
 })
 export class JobsModule { }
