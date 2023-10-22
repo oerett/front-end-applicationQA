@@ -102,7 +102,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
-    ToolbarModule,
+    ToolbarModule
   ],
   providers: [
     AngularFirestoreModule

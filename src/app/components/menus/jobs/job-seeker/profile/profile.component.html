@@ -1,5 +1,62 @@
 <div id="job-seeker-profile" class="page-layout ">
     <div class="profile-container">
-
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [@.disabled]="true" [@bodyExpansion]="" [@indicatorRotate]="" expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal info
+                    </mat-panel-title>
+                    <mat-panel-description class="panel-description">
+                        Your general info.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div fxFlex="100" fxLayout="row" fxLayoutGap="20px" class="general-info">
+                    <div fxFlex="33.3">
+                        <mat-form-field appearance="outline" class="p-bottom p-top full-width">
+                            <mat-label>Role</mat-label>
+                            <input matInput role="text" [ngModel]="role" readonly="true">
+                            <mat-icon matSuffix>role</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="33.3">
+                        <mat-form-field appearance="outline" class="p-bottom p-top full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" [ngModel]="email" readonly="true">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel [@.disabled]="true" [@bodyExpansion]="" [@indicatorRotate]="" expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List of favourite jobs
+                    </mat-panel-title>
+                    <mat-panel-description class="panel-description">
+                        Jobs that you have marked as favourite.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div *ngFor="let favs of favourites; let i = index;">
+                    <span class="jobs">{{i + 1}}. </span>
+                    <span class="jobs">{{favs.jobDescription}} </span>
+                    <span class="jobs-description">| {{favs.jobLongDescription}}.</span>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel [@.disabled]="true" [@bodyExpansion]="" [@indicatorRotate]="" expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        List of jobs applied
+                    </mat-panel-title>
+                    <mat-panel-description class="panel-descriptison">
+                        Jobs that you have applied.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div *ngFor="let favs of jobsApplied; let i = index;">
+                    <span class="jobs">{{i + 1}}. </span>
+                    <span class="jobs">{{favs.jobDescription}} </span>
+                    <span class="jobs-description">| {{favs.jobLongDescription}}.</span>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 </div>

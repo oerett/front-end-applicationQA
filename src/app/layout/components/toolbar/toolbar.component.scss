@@ -17,7 +17,12 @@
 
   .anchor {
     color: white;
+  }
+
+  .anchor:hover {
+    text-decoration: underline;
     text-decoration-color: white;
+    cursor: pointer;
   }
 
   .crumb-info {

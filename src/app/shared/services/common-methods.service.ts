@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -54,5 +55,7 @@ export class SharedService {
         });
     }
 
-
+    getJobsApplied(): Observable<any> {
+        return this.http.get('assets/jobs-applied.json');
+    }
 }

@@ -6,13 +6,59 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
+  overflow: auto;
 
   .profile-container {
-    max-width: 80%;
-    padding: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 75px 20px 20px 20px;
     box-sizing: border-box;
-    border: 1px solid #F0EFF4;
-    border-radius: 10px;
-    background: #FBFBFB;
+    overflow-x: hidden;
   }
+
+  .jobs {
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  .jobs-description {
+    color: lightgray;
+    font-size: 13px;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  .panel-description {
+    font-size: 12px;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+  }
+
+  input {
+    font-size: 13px;
+  }
+
+  .general-info {
+    max-height: 90px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  ::ng-deep {
+    .mat-content {
+      flex-direction: column;
+      font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
+    }
+
+    .mat-expansion-panel:not([class*=mat-elevation-z]) {
+      box-shadow: none;
+    }
+
+    .mat-expansion-panel-header:hover {
+      background-color: inherit;
+    }
+
+  }
+
 }

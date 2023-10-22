@@ -1,0 +1,25 @@
+[{
+  "jobDescription": "Software Engineer",
+  "jobLongDescription": "Develops, tests, and maintains software applications",
+  "jobId": "9dd45e24-bb28-49ac-8278-6fe870618e33"
+}, {
+  "jobDescription": "Data Scientist",
+  "jobLongDescription": "Analyzes and interprets complex data to inform business decisions",
+  "jobId": "78079b3b-56e8-4948-a955-69b989f5af4f"
+}, {
+  "jobDescription": "Product Manager",
+  "jobLongDescription": "Oversees the development and management of a product from ideation to launch",
+  "jobId": "b374e9dc-a330-4986-9b55-bccf331c88c8"
+}, {
+  "jobDescription": "Graphic Designer",
+  "jobLongDescription": "Creates visual content for marketing materials, websites, and more",
+  "jobId": "7356ce1c-1aef-4f3b-8b47-354502a72456"
+}, {
+  "jobDescription": "Marketing Manager",
+  "jobLongDescription": "Plans and executes marketing campaigns to promote products or services",
+  "jobId": "6348ad78-5a46-4941-9ac4-cdb3defd0093"
+}, {
+  "jobDescription": "Sales Representative",
+  "jobLongDescription": "Sells products or services to clients or customers",
+  "jobId": "7eb2a6d7-a030-4d18-8576-48f33fde4003"
+}]

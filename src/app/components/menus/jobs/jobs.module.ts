@@ -8,11 +8,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { JobFilterPipe } from "src/app/shared/pipes/jobs-filter.pipe";
 import { ProfileComponent } from './job-seeker/profile/profile.component';
 import { MatIconModule } from "@angular/material/icon";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatInputModule } from "@angular/material/input";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 const routes: Routes = [
     {
         path: "",
-        data: { breadcrumb: "Job seeker" },
         children: [
             {
                 path: "",
@@ -21,27 +23,18 @@ const routes: Routes = [
             },
             {
                 path: "",
-                component: JobSeekerComponent,
-                data: {
-                    breadcrumb: "Job seeker",
-                },
+                component: JobSeekerComponent
             },
             {
                 path: "job-seeker",
                 children: [
                     {
                         path: "",
-                        component: JobSeekerComponent,
-                        data: {
-                            breadcrumb: null,
-                        },
+                        component: JobSeekerComponent
                     },
                     {
                         path: "profile",
-                        component: ProfileComponent,
-                        data: {
-                            breadcrumb: "Profile",
-                        },
+                        component: ProfileComponent
                     },
                 ],
                 canActivate: [AuthGuardService],
@@ -59,20 +52,14 @@ const routes: Routes = [
             },
             {
                 path: "",
-                component: JobOfferComponent,
-                data: {
-                    breadcrumb: "Job offer",
-                },
+                component: JobOfferComponent
             },
             {
                 path: "job-offer",
                 children: [
                     {
                         path: "",
-                        component: JobOfferComponent,
-                        data: {
-                            breadcrumb: null,
-                        },
+                        component: JobOfferComponent
                     },
                 ],
                 canActivate: [AuthGuardService],
@@ -94,6 +81,9 @@ const routes: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(routes),
         MatIconModule,
+        MatExpansionModule,
+        MatInputModule,
+        FlexLayoutModule
     ],
     exports: [JobSeekerComponent, JobOfferComponent],
     providers: [],

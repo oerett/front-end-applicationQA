@@ -20,7 +20,7 @@
                     <mat-icon matSuffix class="arrow-down-icon">keyboard_arrow_down</mat-icon>
                 </button>
                 <mat-menu #moreOptions="matMenu">
-                    <button mat-menu-item (click)="goToProfile()">
+                    <button *ngIf="role == 'js'" mat-menu-item (click)="goToProfile()">
                         <span>Profile</span>
                     </button>
                     <button mat-menu-item (click)="logOut()">

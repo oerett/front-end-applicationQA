@@ -11,6 +11,7 @@ import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-servi
 })
 export class ToolbarComponent {
   username: string = "";
+  role: string = "";
   breadcrumbs$: Observable<Breadcrumb[]>;
 
   constructor(
@@ -24,6 +25,7 @@ export class ToolbarComponent {
 
   ngOnInit() {
     this.username = localStorage.getItem('email') as string;
+    this.role = localStorage.getItem('role') as string;
   }
 
   goToProfile() {
