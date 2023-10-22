@@ -10,18 +10,14 @@ import { AuthService } from 'src/app/services/auth-services/auth.service';
 export class ToolbarComponent {
   username: string = "";
   isAuthenticated: boolean = false;
-  constructor(public authService: AuthService,
-    private cdRef: ChangeDetectorRef,
-    private router: Router) {
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit() {
     this.username = localStorage.getItem('username') as string;
-    this.isAuthenticated = localStorage.getItem('isAuthenticated') as any;
   }
 
   logOut() {
     this.authService.logout();
-    this.cdRef.detectChanges();
   }
 }
