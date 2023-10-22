@@ -11,6 +11,10 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatInputModule } from "@angular/material/input";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ToolbarModule } from "src/app/layout/components/toolbar/toolbar.module";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatTableModule } from "@angular/material/table";
+import { MatSortModule } from "@angular/material/sort";
 
 const routes: Routes = [
     {
@@ -80,10 +84,15 @@ const routes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes),
-        MatIconModule,
         MatExpansionModule,
         MatInputModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        ToolbarModule,
+        MatTableModule,
+        MatIconModule,
+        MatMenuModule,
+        // MatButtonModule,
+        MatSortModule
     ],
     exports: [JobSeekerComponent, JobOfferComponent],
     providers: [],

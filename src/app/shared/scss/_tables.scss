@@ -1,0 +1,60 @@
+td,
+th {
+  word-wrap: break-word;
+}
+
+table {
+  width: 100%;
+}
+
+.sort-hover:hover .default-icon {
+  display: inline-block;
+}
+
+.default-icon {
+  display: none;
+}
+
+.big {
+  font-size: 20px !important;
+}
+
+.data-not-found {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  color: lightgray;
+  font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif !important;
+  font-size: 17px;
+  z-index: 1040;
+}
+
+::ng-deep {
+  .mat-mdc-text-field-wrapper {
+    background-color: white;
+  }
+
+  .mat-mdc-form-field:hover .mat-mdc-form-field-focus-overlay {
+    opacity: 0 !important;
+  }
+
+  .mat-mdc-form-field-bottom-align {
+    display: none;
+  }
+
+  .mat-mdc-form-field {
+    height: 45px;
+    margin: 0 !important;
+    margin-top: 1px;
+    font-size: 12px !important;
+    width: 100%;
+    font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif !important;
+  }
+
+  .mdc-text-field--focused .mdc-text-field__input {
+    outline: none;
+    box-shadow: none;
+    border-color: initial;
+  }
+
+}

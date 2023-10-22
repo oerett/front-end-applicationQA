@@ -1,0 +1,57 @@
+#job-offer {
+  @import 'src/app/shared/scss/helpers',
+  'src/app/shared/scss/tables';
+
+  //   overflow: hidden;
+
+  .table-container {
+    height: calc(100vh - 120px);
+    table-layout: fixed;
+    padding: 20px;
+  }
+
+  .mat-table {
+    height: calc(100vh - 120px);
+    position: relative;
+    top: 60px;
+  }
+
+  .mat-column-index {
+    width: 4%;
+  }
+
+  .mat-column-jobId {
+    width: auto;
+  }
+
+  .mat-column-jobDescription {
+    width: auto;
+  }
+
+  .mat-column-longJobDescription {
+    width: auto;
+  }
+
+  .mat-column-options {
+    width: 4%;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+  }
+
+  input {
+    font-size: 13px;
+  }
+
+  .no-side-shadow {
+    box-shadow:
+      0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 0 0 0 rgba(0, 0, 0, 0.12),
+      0 0 0 0 rgba(0, 0, 0, 0.2),
+      0 0 0 0 rgba(0, 0, 0, 0.15);
+  }
+
+
+}

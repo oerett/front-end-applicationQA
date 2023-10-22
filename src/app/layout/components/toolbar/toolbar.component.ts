@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
-import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-service'; // adjust path
+import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,6 +13,7 @@ export class ToolbarComponent {
   username: string = "";
   role: string = "";
   breadcrumbs$: Observable<Breadcrumb[]>;
+  url: string = "";
 
   constructor(
     public authService: AuthService,
@@ -21,6 +22,11 @@ export class ToolbarComponent {
     private breadcrumbService: BreadcrumbService
   ) {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs;
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.url = this.router.url;
+      }
+    });
   }
 
   ngOnInit() {

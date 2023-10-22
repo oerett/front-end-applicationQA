@@ -1,9 +1,9 @@
 <div id="toolbar" *ngIf="(authService.isAuthenticated | async)">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span class="title-info">Job seeker panel</span>
-            <!-- <span *ngIf="role == 'js'" class="title-info">Job seeker panel</span>
-            <span *ngIf="role == 'jo'" class="title-info">Job offer panel</span> -->
+            <!-- <span class="title-info">Job seeker panel</span> -->
+            <span *ngIf="url.includes('job-seeker')" class="title-info">Job seeker panel</span>
+            <span *ngIf="url.includes('job-offer')" class="title-info">Job offer panel</span>
             <mat-toolbar-row>
                 <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index; let last = last">
                     <span *ngIf="breadcrumb.label == 'dashboard'" class="anchor crumb-info"
@@ -22,8 +22,7 @@
                     <mat-icon matSuffix class="arrow-down-icon">keyboard_arrow_down</mat-icon>
                 </button>
                 <mat-menu #moreOptions="matMenu">
-                    <!--*ngIf="role == 'js'" -->
-                    <button mat-menu-item (click)="goToProfile()">
+                    <button *ngIf="url.includes('job-seeker')" mat-menu-item (click)="goToProfile()">
                         <span>Profile</span>
                     </button>
                     <button mat-menu-item (click)="logOut()">
