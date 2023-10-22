@@ -10,12 +10,17 @@ import { selectFavoriteJobs } from '../favorite-job.state';
 })
 export class ProfileComponent {
   favoriteJobs$: Observable<any[]>;
+  favourites: any = [];
 
   constructor(private store: Store) {
     this.favoriteJobs$ = this.store.select(selectFavoriteJobs);
-    console.log(this.favoriteJobs$, "tellme ?")
   }
 
   ngOnInit() {
+    this.favoriteJobs$.subscribe((jobs) => {
+      console.log(jobs, "he erdhen?")
+      this.favourites = jobs;
+    })
+    console.log(this.favoriteJobs$, "tellme ?")
   }
 }

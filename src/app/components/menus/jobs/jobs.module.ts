@@ -36,27 +36,13 @@ const routes: Routes = [
                             breadcrumb: null,
                         },
                     },
-                    // {
-                    //     path: "detail",
-                    //     component: CardsDetailsComponent,
-                    //     data: {
-                    //         breadcrumb: "Detaje",
-                    //     },
-                    // },
-                    // {
-                    //     path: "modify",
-                    //     component: MasterdataModifyComponent,
-                    //     data: {
-                    //         breadcrumb: "Modifiko",
-                    //     },
-                    // },
-                    // {
-                    //     path: "add",
-                    //     component: MasterdataModifyComponent,
-                    //     data: {
-                    //         breadcrumb: "Shto",
-                    //     },
-                    // },
+                    {
+                        path: "profile",
+                        component: ProfileComponent,
+                        data: {
+                            breadcrumb: "Profile",
+                        },
+                    },
                 ],
                 canActivate: [AuthGuardService],
             },
@@ -100,7 +86,7 @@ const routes: Routes = [
         JobOfferComponent,
         JobSeekerComponent,
         JobFilterPipe,
-        ProfileComponent,
+        ProfileComponent
     ],
     imports: [
         CommonModule,

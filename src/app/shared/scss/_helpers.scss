@@ -15,10 +15,6 @@
   color: rgba(0, 0, 0, 0.19);
 }
 
-::ng-deep .mat-mdc-text-field-wrapper {
-  // outline: auto;
-}
-
 input {
   color: black;
 }
@@ -44,7 +40,6 @@ input {
 .auth-title {
   padding: 15px 10px 10px 10px;
   font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
-  // color: #03A9F4;
   font-weight: 500;
   font-size: 16px;
 }

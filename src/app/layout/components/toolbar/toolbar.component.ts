@@ -9,13 +9,20 @@ import { AuthService } from 'src/app/services/auth-services/auth.service';
 })
 export class ToolbarComponent {
   username: string = "";
-  
-  constructor(public authService: AuthService,
-    private cdRef: ChangeDetectorRef) {
+
+  constructor(
+    public authService: AuthService,
+    private cdRef: ChangeDetectorRef,
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
     this.username = localStorage.getItem('username') as string;
+  }
+
+  goToProfile() {
+    this.router.navigate(['/dashboard/job-seeker/profile'])
   }
 
   logOut() {

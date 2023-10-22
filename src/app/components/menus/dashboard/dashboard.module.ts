@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { JobsModule } from '../jobs/jobs.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -22,6 +24,9 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         MatProgressBarModule,
         MatCardModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         JobsModule
     ],
     providers: [

@@ -59,9 +59,9 @@ export class LoginComponent {
         localStorage.setItem("isAuthenticated", "true");
         localStorage.setItem("email", `${userData['email']}`);
         localStorage.setItem("username", `${userData['username']}`);
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/dashboard/job-seeker"]);
         this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
-          if (role == "js") localStorage.setItem("role", "js");
+          localStorage.setItem("role", role);
         }).catch(error => {
           this._isAuthenticated.logout();
           this._dialog.openErrorDialogV2("Error", error, '', '');
