@@ -10,7 +10,8 @@ import { JobSeekerService } from './job-seeker.service';
 export class JobSeekerComponent {
   jobs: any = [];
   searchTerm: string = "";
-  
+  favorites: boolean[] = [];
+
   constructor(private jobSeekerService: JobSeekerService) {
 
   }
@@ -20,6 +21,15 @@ export class JobSeekerComponent {
       this.jobs = data;
     });
   }
+
+  favourite(action: number, index: number) {
+    if (action === 1) {
+      this.favorites[index] = true;
+    } else {
+      this.favorites[index] = false;
+    }
+  }
+
 
 
 

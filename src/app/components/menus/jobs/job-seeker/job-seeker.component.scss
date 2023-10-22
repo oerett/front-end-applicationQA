@@ -47,8 +47,18 @@
   .job-description {
     font-weight: 600;
     font-size: 13px;
+    display: flex;
+    position: relative;
     text-align: center;
+    align-items: center;
     padding: 0 0 10px;
+  }
+
+  mat-icon {
+    position: absolute;
+    right: 0;
+    top: 33%;
+    transform: translateY(-50%);
   }
 
   .job-long-description {

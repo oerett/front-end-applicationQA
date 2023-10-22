@@ -19,12 +19,10 @@ export class AuthService {
     }
 
     setAuth() {
-        console.log("what the hell???")
         this._isAuthenticated.next(true);
     }
 
     logout() {
-        console.log("what the hell??? 2222")
         localStorage.clear();
         this._isAuthenticated.next(false);
         this.router.navigateByUrl("/auth/login", {

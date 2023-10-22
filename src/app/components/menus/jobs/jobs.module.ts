@@ -7,6 +7,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { JobFilterPipe } from "src/app/shared/pipes/jobs-filter.pipe";
 import { ProfileComponent } from './job-seeker/profile/profile.component';
+import { MatIconModule } from "@angular/material/icon";
 
 const routes: Routes = [
     {
@@ -106,6 +107,7 @@ const routes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes),
+        MatIconModule,
     ],
     exports: [JobSeekerComponent, JobOfferComponent],
     providers: [],

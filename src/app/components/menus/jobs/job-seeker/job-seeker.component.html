@@ -5,7 +5,12 @@
     <div class="card-container">
         <div *ngFor="let job of jobs | jobFilter:searchTerm;; let i = index">
             <div class="card">
-                <div class="job-description">{{job.jobDescription}}</div>
+                <div class="job-description">{{job.jobDescription}}
+                    <mat-icon matSuffix class="pointer" *ngIf="favorites[i]"
+                        (click)="favourite(0, i)">favorite</mat-icon>
+                    <mat-icon matSuffix class="pointer" *ngIf="!favorites[i]"
+                        (click)="favourite(1, i)">favorite_border</mat-icon>
+                </div>
                 <div class="job-long-description">{{job.jobLongDescription}}</div>
             </div>
         </div>
