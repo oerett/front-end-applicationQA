@@ -22,16 +22,15 @@ export class ToolbarComponent {
     private breadcrumbService: BreadcrumbService
   ) {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs;
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.url = this.router.url;
-      }
-    });
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.username = localStorage.getItem('email') as string;
     this.role = localStorage.getItem('role') as string;
+    this.cdRef.detectChanges();
   }
 
   goToProfile() {

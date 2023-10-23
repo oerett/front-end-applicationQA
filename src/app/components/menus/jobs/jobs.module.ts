@@ -15,6 +15,7 @@ import { ToolbarModule } from "src/app/layout/components/toolbar/toolbar.module"
 import { MatMenuModule } from "@angular/material/menu";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 const routes: Routes = [
     {
@@ -91,6 +92,7 @@ const routes: Routes = [
         MatTableModule,
         MatIconModule,
         MatMenuModule,
+        MatPaginatorModule,
         // MatButtonModule,
         MatSortModule
     ],

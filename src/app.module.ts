@@ -27,9 +27,10 @@ import * as firebase from 'firebase/app';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarModule } from './app/layout/components/toolbar/toolbar.module';
 import { StoreModule } from '@ngrx/store';
-import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { ActionReducer, MetaReducer } from '@ngrx/store';
+import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
+import { DashboardModule } from './app/components/menus/dashboard/dashboard.module';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -43,16 +44,6 @@ const appRoutes: Routes = [
   {
     path: "auth",
     loadChildren: () => import('./app/components/authentication/authentication.module').then(m => m.AuthenticationModule)
-  },
-  {
-    path: "dashboard",
-    loadChildren: () => import('./app/components/menus/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: "jobs",
-    loadChildren: () => import('./app/components/menus/jobs/jobs.module').then(m => m.JobsModule),
-    canActivate: [AuthGuardService],
   },
   {
     path: "**",
@@ -102,7 +93,8 @@ export function initializeFirebaseApp(): () => Promise<any> {
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
-    ToolbarModule
+    ToolbarModule,
+    DashboardModule
   ],
   providers: [
     AngularFirestoreModule

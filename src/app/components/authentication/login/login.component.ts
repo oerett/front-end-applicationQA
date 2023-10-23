@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { debounceTime, from, map, switchMap } from 'rxjs';
+import { debounceTime } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-login',
@@ -24,14 +24,15 @@ export class LoginComponent {
     private sharedService: SharedService,
     private router: Router,
     private _dialog: DialogService,
-    private firestore: AngularFirestore,
     private _isAuthenticated: AuthService,
     private spinner: NgxSpinnerService,
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      rememberMe: [false, [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false, [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -43,7 +44,6 @@ export class LoginComponent {
       this.rememberMe = true;
     }
 
-    // Subscribe to email control value changes
     this.loginForm.controls['email'].valueChanges.pipe(debounceTime(300)).subscribe(newEmail => {
       if (this.loginForm.controls['rememberMe'].value == true) {
         localStorage.setItem('rememberedEmail', newEmail);
@@ -56,45 +56,27 @@ export class LoginComponent {
   }
 
   async loginApicall(form: FormGroup) {
-    this.spinner.show();
-    const auth = getAuth();
-    from(signInWithEmailAndPassword(auth, form.value['email'], form.value['password'])).pipe(switchMap(userCredential => {
-      const user = userCredential.user;
-      const userDocRef = this.firestore.collection('users').doc(user['uid']);
-      return userDocRef.valueChanges().pipe(
-        map(userData => ({ user, userData }))
-      );
-    })).subscribe({
-      next: ({ user, userData }: any) => {
-        this._isAuthenticated.setAuth();
-        let role = "";
-        if (userData) {
-          role = userData['role'];
-        }
-        localStorage.setItem("isAuthenticated", "true");
-        localStorage.setItem("email", `${userData['email']}`);
-        localStorage.setItem("username", `${userData['username']}`);
-        if (role == 'js')
-          this.router.navigate(["/dashboard/job-seeker"]);
-        else this.router.navigate(["/dashboard/job-offer"]);
-        this.sharedService.saveUserInFirestore(user.uid, form.value['email'], role).then(() => {
-          localStorage.setItem("role", role);
-        }).catch(error => {
-          this._isAuthenticated.logout();
-          this._dialog.openErrorDialogV2("Error", error, '', '');
-        });
-        this.spinner.hide();
-      },
-      error: error => {
-        this._isAuthenticated.logout();
-        if (error.code == "auth/invalid-login-credentials") {
-          this.spinner.hide();
-          this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
-        }
+    try {
+      const userData = await this.afAuth.signInWithEmailAndPassword(form.value.email, form.value.password);
+      const user = userData.user;
+      this._isAuthenticated.setAuth();
+      localStorage.setItem("isAuthenticated", 'true');
+      if (user && !user.emailVerified) {
+        await user.sendEmailVerification();
+        this._dialog.openSuccessDialogV2("Success", "Verifying link sent successfully", '', '');
       }
-    });
+      this.router.navigate(["/dashboard"]);
+      return true;
+    } catch (e: any) {
+      this._isAuthenticated.logout();
+      localStorage.setItem("isAuthenticated", 'false');
+      if (e.code == "auth/invalid-login-credentials") {
+        this.spinner.hide();
+        this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
+      }
+      return false;
+    }
   }
-
 
   register() {
     this.router.navigate(["auth/register"]);

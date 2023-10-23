@@ -1,6 +1,8 @@
-<div *ngIf="role=='js'">
-    <app-job-seeker></app-job-seeker>
-</div>
-<div *ngIf="role=='jo'">
-    <app-job-offer></app-job-offer>
+<div id="dashboard">
+    <div *ngIf="role==='js'">
+        <app-job-seeker></app-job-seeker>
+    </div>
+    <div *ngIf="role==='jo'">
+        <app-job-offer></app-job-offer>
+    </div>
 </div>

@@ -1,5 +1,7 @@
 #toolbar {
   @import 'src/app/shared/scss/helpers';
+  position: sticky;
+  z-index: 9999999999;
 
   .title-info {
     font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
@@ -7,8 +9,8 @@
   }
 
   .mat-toolbar {
-    position: fixed;
-    z-index: 1040;
+    // position: fixed;
+    // z-index: 9999999999;
   }
 
   .menu-spacer {

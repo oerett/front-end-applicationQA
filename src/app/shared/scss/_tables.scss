@@ -58,3 +58,40 @@ table {
   }
 
 }
+
+.mat-mdc-paginator {
+  position: absolute;
+  top: 65px;
+  z-index: 1040;
+  right: 20px;
+  font-size: 12px;
+  font-family: "Muli", "Helvetica Neue", "Arial", sans-serif;
+}
+
+::ng-deep .mat-mdc-paginator-page-size-select {
+  width: 65px !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent;
+}
+
+::ng-deep .mat-select-value {
+  color: #005999;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+::ng-deep .mat-select-arrow {
+  color: #005999;
+}
+
+::ng-deep .mat-option {
+  padding: 0 !important;
+
+}
+
+::ng-deep .mat-option-text {
+
+  text-align: right;
+}

@@ -58,4 +58,8 @@ export class SharedService {
     getJobsApplied(): Observable<any> {
         return this.http.get('assets/jobs-applied.json');
     }
+
+    getJobs() {
+        return this.firestore.collection('jobs').valueChanges();
+    }
 }

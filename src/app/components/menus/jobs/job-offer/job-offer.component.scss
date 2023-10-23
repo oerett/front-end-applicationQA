@@ -2,18 +2,16 @@
   @import 'src/app/shared/scss/helpers',
   'src/app/shared/scss/tables';
 
-  //   overflow: hidden;
+  height: 100vh;
 
-  .table-container {
-    height: calc(100vh - 120px);
-    table-layout: fixed;
+  >.table-container {
+    max-height: calc(100vh - 120px);
     padding: 20px;
   }
 
   .mat-table {
-    height: calc(100vh - 120px);
-    position: relative;
-    top: 60px;
+    table-layout: fixed;
+    margin-top: 45px;
   }
 
   .mat-column-index {
@@ -53,5 +51,30 @@
       0 0 0 0 rgba(0, 0, 0, 0.15);
   }
 
+  ::ng-deep .mat-table {
+    display: block;
+    margin-top: 45px;
+    overflow: auto;
+  }
 
+  .footer {
+    position: absolute;
+    bottom: 7px;
+    right: 40px;
+
+    .add-button {
+      background-color: #3F51B5 !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50% !important;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.20) !important;
+      transition: background-color 0.3s ease !important;
+    }
+
+    .add-icon {
+      color: white;
+    }
+
+
+  }
 }

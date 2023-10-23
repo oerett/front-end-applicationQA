@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { MatSortable } from '@angular/material/sort';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, MatSortable } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SharedService } from 'src/app/shared/services/common-methods.service';
 
 @Component({
   selector: 'app-job-offer',
@@ -15,17 +17,32 @@ export class JobOfferComponent {
   jobDescription: string = "";
   jobLongDescription: string = "";
   displayedColumns: string[] = ["index", "jobId", "jobDescription", "jobLongDescription", "options"];
+  jobs: any = [];
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor() {
+  constructor(
+    private sharedService: SharedService,) {
     this.dataSource = new MatTableDataSource<any>([]);
+  }
+
+  ngOnInit() {
+    this.sharedService.getJobs().subscribe(data => {
+      this.jobs = data;
+      this.dataSource = new MatTableDataSource<any>(this.jobs);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(column: string, event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    const value = inputElement.value || "";
+    const value = inputElement.value.trim().toLowerCase();
     this.dataSource.filterPredicate = (data: any, filter: string) => {
-      return data[column] === filter;  // Match column's value with filter
+      const cellValue = data[column] ? data[column].toString().toLowerCase() : "";
+      return cellValue.includes(filter);
     };
+
     this.dataSource.filter = value;
   }
 
@@ -52,5 +69,9 @@ export class JobOfferComponent {
       return item[property].toLowerCase()
     }
     return item[property]
+  }
+
+  addJob() {
+
   }
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { JobSeekerService } from './job-seeker.service';
 import { Store } from '@ngrx/store';
 import { addFavoriteJob, removeFavoriteJob, updateFavoritesArray } from './favorite-job.actions';
 import { selectFavoriteJobs } from './favorite-job.state';
 import * as fromFavoriteJob from './favorite-job.state';
+import { SharedService } from 'src/app/shared/services/common-methods.service';
 
 @Component({
   selector: 'app-job-seeker',
@@ -18,7 +18,7 @@ export class JobSeekerComponent {
   favoriteJobs: any[] = [];
 
   constructor(
-    private jobSeekerService: JobSeekerService,
+    private sharedService: SharedService,
     private store: Store) {
     this.store.select(fromFavoriteJob.selectFavorites).subscribe(res => {
       if (res.length != 0)
@@ -27,7 +27,7 @@ export class JobSeekerComponent {
   }
 
   ngOnInit() {
-    this.jobSeekerService.getJobs().subscribe(data => {
+    this.sharedService.getJobs().subscribe(data => {
       this.jobs = data;
       this.setFavoritesArray();
     });
