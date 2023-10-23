@@ -48,4 +48,22 @@ export class DialogService {
         })
     }
 
+    openConfirmDialogV2(title: string, before: string, data: any, after: any): any {
+        let dialogData = {
+            title: title,
+            titleBg: 'blue',
+            before: before,
+            data: data,
+            after: after,
+            hasCloseBtn: true,
+            hasOkBtn: true,
+        }
+
+        return this._dialog.open(DialogV2Component, {
+            data: dialogData,
+            panelClass: 'custom-dialog-container',
+            autoFocus: false
+        })
+    }
+
 }

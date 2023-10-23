@@ -11,7 +11,6 @@
 
   .mat-table {
     table-layout: fixed;
-    margin-top: 45px;
   }
 
   .mat-column-index {
@@ -73,8 +72,13 @@
 
     .add-icon {
       color: white;
+      padding-top: 4px;
     }
 
-
   }
+}
+
+::ng-deep .cdk-global-scrollblock {
+  position: absolute !important;
+  overflow-y: hidden !important;
 }

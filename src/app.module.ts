@@ -31,6 +31,7 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 import { ActionReducer, MetaReducer } from '@ngrx/store';
 import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
 import { DashboardModule } from './app/components/menus/dashboard/dashboard.module';
+import { ModifyJobOfferDialogComponent } from './app/components/menus/jobs/job-offer/modify-job-offer-dialog/modify-job-offer-dialog.component';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -68,6 +69,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
   declarations: [
     AppComponent,
     DialogV2Component,
+    ModifyJobOfferDialogComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

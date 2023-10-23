@@ -78,7 +78,7 @@ const routes: Routes = [
         JobOfferComponent,
         JobSeekerComponent,
         JobFilterPipe,
-        ProfileComponent
+        ProfileComponent,
     ],
     imports: [
         CommonModule,

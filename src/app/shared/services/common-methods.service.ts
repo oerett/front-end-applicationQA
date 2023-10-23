@@ -4,14 +4,15 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { doc, getFirestore, setDoc } from "firebase/firestore";
-import { Observable } from "rxjs";
+import { Observable, map, BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class SharedService {
-
+    private checkRefreshValue = new BehaviorSubject<any>({ refresh: false });
+    
     constructor(
         private firestore: AngularFirestore,
         private http: HttpClient
@@ -59,7 +60,18 @@ export class SharedService {
         return this.http.get('assets/jobs-applied.json');
     }
 
-    getJobs() {
-        return this.firestore.collection('jobs').valueChanges();
+    refreshTable() {
+        return this.checkRefreshValue;
     }
+
+    getJobs() {
+        return this.firestore.collection('jobs').snapshotChanges().pipe(
+            map(actions => actions.map(a => {
+                const data = a.payload.doc.data() as any;
+                const id = a.payload.doc.id;
+                return { id, ...data };
+            }))
+        );
+    }
+
 }

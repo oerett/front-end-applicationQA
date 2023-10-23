@@ -1,0 +1,42 @@
+<div id="job-modify-dialog" mat-card>
+    <form name="dialogForm" [formGroup]="dialogForm">
+        <div mat-dialog-title class='title blue'>
+            <div class="title-container">
+                <span *ngIf="this.data['action'] == 'modify'">Modify {{data['jobsdata'].jobDescription}}</span>
+                <span *ngIf="this.data['action'] == 'add'">Add</span>
+            </div>
+            <div class="top-right">
+                <button mat-mini-fab class="close-btn" [mat-dialog-close]="false">
+                    <mat-icon style="color:white">close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="content-data" ngDefaultControl fxLayout="column">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Job id</mat-label>
+                <input matInput placeholder="Job id" autocomplete="off" name="jobId" formControlName="jobId"
+                    [readonly]="data['action']=='modify'">
+                <mat-icon matSuffix>code</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Job description</mat-label>
+                <input matInput placeholder="Job description" autocomplete="off" name="jobDescription"
+                    formControlName="jobDescription">
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Job long description</mat-label>
+                <textarea class="textarea" matInput placeholder="Job long description" autocomplete="off"
+                    name="jobLongDescription" formControlName="jobLongDescription"></textarea>
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="btnHolder">
+            <hr>
+            <button [mat-dialog-close]="false" cdkFocusInitial mat-flat-button color="accent"
+                [disabled]="dialogForm.invalid || dialogForm.pristine" (click)="saveJobs(dialogForm)">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
