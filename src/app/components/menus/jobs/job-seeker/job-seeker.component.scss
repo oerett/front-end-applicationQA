@@ -8,7 +8,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 15px;
-    margin-top: 130px;
+    margin-top: 70px;
+    overflow: auto;
+    max-height: calc(100vh - 150px);
   }
 
   .card {
