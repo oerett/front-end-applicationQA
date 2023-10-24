@@ -13,8 +13,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './job-offer.component.html',
   styleUrls: ['./job-offer.component.scss']
 })
+
 export class JobOfferComponent {
-  sortDir: string = 'default';
+  sortDir: 'default' | 'asc' | 'desc' = 'default';
   sortedColumn: string = '';
   dataSource: MatTableDataSource<any>;
   jobId: string = "";
@@ -39,6 +40,11 @@ export class JobOfferComponent {
 
   ngOnInit() {
     this.getJobsByEmail();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getJobs() {
@@ -74,21 +80,33 @@ export class JobOfferComponent {
     this.dataSource.filter = value;
   }
 
-  sortByColumn(event: any, column: string, direction: string): void {
-    if (column !== this.sortedColumn)
-      this.sortDir = "default";
+  sortByColumn(event: any, column: string): void {
+    if (this.sortedColumn !== column) {
+      this.sortDir = 'default';
+    }
     this.sortedColumn = column;
     event.stopPropagation();
-    if (this.sortDir === "descending")
-      this.sortDir = "default";
-    else if (this.sortDir === "ascending")
-      this.sortDir = "descending";
-    else if (this.sortDir === "default")
-      this.sortDir = "ascending";
-    this.dataSource.sortingDataAccessor = this.sortingDataAccessor;
-    if (this.dataSource && this.dataSource.sort)
-      this.dataSource.sort.sort(<MatSortable>({ id: column, start: this.sortDir }));
+    switch (this.sortDir) {
+      case 'default':
+        this.sortDir = 'asc';
+        break;
+      case 'asc':
+        this.sortDir = 'desc';
+        break;
+      case 'desc':
+        this.sortDir = 'default';
+        break;
+    }
+    if (this.dataSource && this.dataSource.sort) {
+      this.dataSource.sort.sort(<MatSortable>({ id: column, start: 'asc' }));
+      if (this.sortDir === 'default') {
+        this.dataSource.sort.active = '';
+        this.dataSource.sort.direction = '';
+        this.dataSource.sort.sortChange.emit();
+      }
+    }
   }
+
 
   sortingDataAccessor(item: any, property: string): string {
     if (typeof item[property] === 'string') {
@@ -113,7 +131,7 @@ export class JobOfferComponent {
           if (res.refresh != false && this.refresh == false) {
             this.refresh = true;
             await this.sharedService.refreshTable().next({ refresh: false });
-            this.getJobs();
+            this.getJobsByEmail();
           }
         })
     });
@@ -126,7 +144,7 @@ export class JobOfferComponent {
           if (res === true) {
             this.firestore.collection('jobs').doc(jobsdata.id).delete().then(() => {
               this._dialog.openSuccessDialogV2("Success", "Job successfully deleted!", '', '');
-              this.getJobs();
+              this.getJobsByEmail();
               this.cdRef.detectChanges();
             }).catch((error) => {
               this._dialog.openErrorDialogV2("Error", error, '', '');
@@ -152,7 +170,7 @@ export class JobOfferComponent {
           if (res.refresh != false && this.refresh == false) {
             this.refresh = true;
             await this.sharedService.refreshTable().next({ refresh: false });
-            this.getJobs();
+            this.getJobsByEmail();
           }
         })
     });

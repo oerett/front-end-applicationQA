@@ -5,7 +5,7 @@
         <div *ngIf="this.dataSource?.filteredData?.length === 0" class="data-not-found">
             <p class="not-found-txt">Data not found!</p>
         </div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table no-side-shadow">
+        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 mat-table no-side-shadow">
             <ng-container matColumnDef="index">
                 <th mat-header-cell *matHeaderCellDef>
                 </th>
@@ -18,12 +18,12 @@
                         <input autocomplete="off" matInput (keyup)="applyFilter('jobId', $event)" placeholder="Job id"
                             [(ngModel)]="jobId">
                         <button mat-button matSuffix mat-icon-button aria-label="Sort"
-                            (click)="sortByColumn($event, 'jobId', 'asc')">
+                            (click)="sortByColumn($event, 'jobId')">
                             <mat-icon class="pointer big default-icon">arrow_upward</mat-icon>
-                            <mat-icon *ngIf="sortDir==='ascending' && sortedColumn==='jobId'" class="pointer big">
+                            <mat-icon *ngIf="sortDir==='asc' && sortedColumn==='jobId'" class="pointer big">
                                 arrow_downward
                             </mat-icon>
-                            <mat-icon *ngIf="sortDir==='descending' && sortedColumn==='jobId'" class="pointer big">
+                            <mat-icon *ngIf="sortDir==='desc' && sortedColumn==='jobId'" class="pointer big">
                                 arrow_upward
                             </mat-icon>
                         </button>
@@ -38,14 +38,12 @@
                         <input autocomplete="off" matInput (keyup)="applyFilter('jobDescription', $event)"
                             placeholder="Job description" [(ngModel)]="jobDescription">
                         <button mat-button matSuffix mat-icon-button aria-label="Sort"
-                            (click)="sortByColumn($event, 'jobDescription', 'asc')">
+                            (click)="sortByColumn($event, 'jobDescription')">
                             <mat-icon class="pointer big default-icon">arrow_upward</mat-icon>
-                            <mat-icon *ngIf="sortDir==='ascending' && sortedColumn==='jobDescription'"
-                                class="pointer big">
+                            <mat-icon *ngIf="sortDir==='asc' && sortedColumn==='jobDescription'" class="pointer big">
                                 arrow_downward
                             </mat-icon>
-                            <mat-icon *ngIf="sortDir==='descending' && sortedColumn==='jobDescription'"
-                                class="pointer big">
+                            <mat-icon *ngIf="sortDir==='desc' && sortedColumn==='jobDescription'" class="pointer big">
                                 arrow_upward
                             </mat-icon>
                         </button>
@@ -60,13 +58,13 @@
                         <input autocomplete="off" matInput (keyup)="applyFilter('jobLongDescription', $event)"
                             placeholder="Job long description" [(ngModel)]="jobLongDescription">
                         <button mat-button matSuffix mat-icon-button aria-label="Sort"
-                            (click)="sortByColumn($event, 'jobLongDescription', 'asc')">
+                            (click)="sortByColumn($event, 'jobLongDescription')">
                             <mat-icon class="pointer big default-icon">arrow_upward</mat-icon>
-                            <mat-icon *ngIf="sortDir==='ascending' && sortedColumn==='jobLongDescription'"
+                            <mat-icon *ngIf="sortDir==='asc' && sortedColumn==='jobLongDescription'"
                                 class="pointer big">
                                 arrow_downward
                             </mat-icon>
-                            <mat-icon *ngIf="sortDir==='descending' && sortedColumn==='jobLongDescription'"
+                            <mat-icon *ngIf="sortDir==='desc' && sortedColumn==='jobLongDescription'"
                                 class="pointer big">
                                 arrow_upward
                             </mat-icon>
