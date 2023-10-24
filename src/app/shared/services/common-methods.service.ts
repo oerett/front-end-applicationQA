@@ -12,7 +12,7 @@ import { Observable, map, BehaviorSubject } from "rxjs";
 
 export class SharedService {
     private checkRefreshValue = new BehaviorSubject<any>({ refresh: false });
-    
+
     constructor(
         private firestore: AngularFirestore,
         private http: HttpClient
@@ -72,6 +72,10 @@ export class SharedService {
                 return { id, ...data };
             }))
         );
+    }
+
+    getJobsByEmail(email: string) {
+        return this.firestore.collection('jobs', ref => ref.where('email', '==', email)).valueChanges();
     }
 
 }

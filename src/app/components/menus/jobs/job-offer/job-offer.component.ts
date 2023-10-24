@@ -39,13 +39,24 @@ export class JobOfferComponent {
   }
 
   ngOnInit() {
-    this.getJobs();
+    this.getJobsByEmail();
   }
 
   getJobs() {
     this.jobs = [];
     this.dataSource = new MatTableDataSource<any>([]);
     this.sharedService.getJobs().subscribe(data => {
+      this.jobs = data;
+      this.dataSource = new MatTableDataSource<any>(this.jobs);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  getJobsByEmail() {
+    this.jobs = [];
+    this.dataSource = new MatTableDataSource<any>([]);
+    this.sharedService.getJobsByEmail(this.email as string).subscribe(data => {
       this.jobs = data;
       this.dataSource = new MatTableDataSource<any>(this.jobs);
       this.dataSource.paginator = this.paginator;
