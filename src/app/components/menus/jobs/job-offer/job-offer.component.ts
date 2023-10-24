@@ -15,6 +15,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class JobOfferComponent {
+  [key: string]: any;
   sortDir: 'default' | 'asc' | 'desc' = 'default';
   sortedColumn: string = '';
   dataSource: MatTableDataSource<any>;
@@ -175,4 +176,23 @@ export class JobOfferComponent {
         })
     });
   }
+
+  refetchJobs() {
+    this.getJobsByEmail();
+    this.clear('');
+  }
+
+  clear(column: string) {
+    const properties = [``, `jobId`, `jobDescription`, `jobLongDescription`, ``];
+    properties.forEach(prop => {
+      if (column === '' || prop !== column) {
+        this[prop] = '';
+      }
+    });
+
+    this.sortDir = 'default';
+    this.sort.direction = '';
+  }
+
+
 }

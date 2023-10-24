@@ -1,5 +1,8 @@
 <div id="job-offer" class="page-layout">
     <div class="table-container">
+        <button class="refresh" mat-button matSuffix (click)="refetchJobs()">
+            <mat-icon class="pointer">refresh</mat-icon>
+        </button>
         <mat-paginator fxFlex="100" [pageSizeOptions]="[25, 50, 75]" class="sticky" [showFirstLastButtons]="true">
         </mat-paginator>
         <div *ngIf="this.dataSource?.filteredData?.length === 0" class="data-not-found">

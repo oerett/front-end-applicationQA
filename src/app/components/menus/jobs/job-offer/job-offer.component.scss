@@ -78,6 +78,13 @@
 
   }
 
+  .refresh {
+    position: absolute;
+    top: 145px;
+    z-index: 1010;
+    left: 25px;
+  }
+
   ::ng-deep .mat-ripple {
     display: none !important;
   }
