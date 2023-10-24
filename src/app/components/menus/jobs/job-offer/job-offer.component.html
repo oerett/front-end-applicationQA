@@ -18,8 +18,8 @@
                 <th mat-header-cell *matHeaderCellDef
                     [ngClass]="{'sort-hover': (sortDir==='default' || sortedColumn!=='jobId')}">
                     <mat-form-field>
-                        <input autocomplete="off" matInput (keyup)="applyFilter('jobId', $event)" placeholder="Job id"
-                            [(ngModel)]="jobId">
+                        <input autocomplete="off" matInput (keyup)="applyFilter('jobId', $event)"
+                            placeholder="Job description" [(ngModel)]="jobId">
                         <button mat-button matSuffix mat-icon-button aria-label="Sort"
                             (click)="sortByColumn($event, 'jobId')">
                             <mat-icon class="pointer big default-icon">arrow_upward</mat-icon>
