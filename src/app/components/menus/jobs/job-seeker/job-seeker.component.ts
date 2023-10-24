@@ -12,17 +12,21 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 })
 
 export class JobSeekerComponent {
-  jobs: any = [];
+  jobs: any[] = [];
   searchTerm: string = "";
-  favorites: boolean[] = [];
+  favorites: { [jobId: string]: boolean } = {};
   favoriteJobs: any[] = [];
 
   constructor(
     private sharedService: SharedService,
     private store: Store) {
     this.store.select(fromFavoriteJob.selectFavorites).subscribe(res => {
-      if (res.length != 0)
-        this.favorites = res;
+      if (res.length != 0) {
+        this.favorites = res.reduce((acc: { [jobId: string]: boolean }, job: any) => {
+          acc[job.jobId] = true;
+          return acc;
+        }, {});
+      }
     })
   }
 
@@ -39,22 +43,18 @@ export class JobSeekerComponent {
   }
 
   setFavoritesArray() {
-    const newFavorites = this.jobs.map((job: any) =>
-      this.favoriteJobs.some(favJob => favJob.jobId === job.jobId)
-    );
-    this.favorites = [...newFavorites];
-    this.store.dispatch(updateFavoritesArray({ favorites: this.favorites }));
+    this.jobs.forEach(job => {
+      this.favorites[job.jobId] = this.favoriteJobs.some(favJob => favJob.jobId === job.jobId);
+    });
   }
 
-  favourite(action: number, index: number, job: any) {
-    const newFavorites = [...this.favorites];  // copy to ensure no direct mutation
+  favourite(action: number, job: any) {
     if (action === 1) {
-      newFavorites[index] = true;
+      this.favorites[job.jobId] = true;
       this.store.dispatch(addFavoriteJob({ job }));
     } else {
-      newFavorites[index] = false;
+      this.favorites[job.jobId] = false;
       this.store.dispatch(removeFavoriteJob({ job }));
     }
-    this.favorites = newFavorites;
   }
 }

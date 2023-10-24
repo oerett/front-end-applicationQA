@@ -18,15 +18,15 @@
   }
 
   .mat-column-jobId {
-    width: auto;
+    width: 20%;
   }
 
   .mat-column-jobDescription {
-    width: auto;
+    width: 25%;
   }
 
   .mat-column-longJobDescription {
-    width: auto;
+    width: 25%;
   }
 
   .mat-column-options {
@@ -75,7 +75,17 @@
       padding-top: 4px;
     }
 
+
   }
+
+  ::ng-deep .mat-ripple {
+    display: none !important;
+  }
+
+  ::ng-deep .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: none !important;
+  }
+
 }
 
 ::ng-deep .cdk-global-scrollblock {

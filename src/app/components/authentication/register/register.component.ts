@@ -36,7 +36,6 @@ export class RegisterComponent {
   }
 
   async registerUser(form: FormGroup) {
-    this._isAuthenticated.setAuth();
     const auth = getAuth();
     from(createUserWithEmailAndPassword(auth, form.value['email'], form.value['password'])).subscribe({
       next: userCredential => {

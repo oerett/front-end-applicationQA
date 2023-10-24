@@ -83,11 +83,11 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #moreOptions="matMenu">
-                        <button mat-menu-item (click)="modifyJobs(jobsData)">
+                        <button mat-menu-item [disabled]="email != jobsData.email" (click)="modifyJobs(jobsData)">
                             <mat-icon>edit</mat-icon>
                             <span>Modify</span>
                         </button>
-                        <button mat-menu-item (click)="delete(jobsData)">
+                        <button mat-menu-item [disabled]="email != jobsData.email" (click)="delete(jobsData)">
                             <mat-icon>delete</mat-icon>
                             <span>Delete</span>
                         </button>

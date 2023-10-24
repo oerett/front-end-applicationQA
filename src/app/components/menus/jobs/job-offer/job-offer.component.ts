@@ -26,6 +26,7 @@ export class JobOfferComponent {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   refresh: boolean = false;
+  email = localStorage.getItem('email');
 
   constructor(
     private sharedService: SharedService,

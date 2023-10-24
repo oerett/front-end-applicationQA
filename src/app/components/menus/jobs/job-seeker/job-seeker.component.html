@@ -7,10 +7,11 @@
             <div class="card">
                 <div class="job-description">
                     <span class="wrap">{{job.jobDescription}}</span>
-                    <mat-icon matSuffix class="pointer" *ngIf="favorites[i]"
-                        (click)="favourite(0, i, job)">favorite</mat-icon>
-                    <mat-icon matSuffix class="pointer" *ngIf="!favorites[i]"
-                        (click)="favourite(1, i, job)">favorite_border</mat-icon>
+                    <mat-icon matSuffix class="pointer" *ngIf="favorites[job.jobId]"
+                        (click)="favourite(0, job)">favorite</mat-icon>
+                    <mat-icon matSuffix class="pointer" *ngIf="!favorites[job.jobId]"
+                        (click)="favourite(1, job)">favorite_border</mat-icon>
+
                 </div>
                 <div class="job-long-description">{{job.jobLongDescription}}</div>
             </div>

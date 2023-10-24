@@ -52,7 +52,13 @@ export class ModifyJobOfferDialogComponent {
         this._dialog.openErrorDialogV2("Error", error, '', '');
       });
     } else {
-      this.firestore.collection('jobs').add(form.value).then(async () => {
+      let body = {
+        email: localStorage.getItem('email'),
+        jobId: form.value.jobId,
+        jobDescription: form.value.jobDescription,
+        jobLongDescription: form.value.jobLongDescription
+      }
+      this.firestore.collection('jobs').add(body).then(async () => {
         this._dialog.openSuccessDialogV2("Success", "Job successfully added!", '', '');
         await this.sharedService.refreshTable().next({ refresh: true });
       }).catch((error) => {

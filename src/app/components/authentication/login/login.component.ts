@@ -59,13 +59,15 @@ export class LoginComponent {
     try {
       const userData = await this.afAuth.signInWithEmailAndPassword(form.value.email, form.value.password);
       const user = userData.user;
-      this._isAuthenticated.setAuth();
-      localStorage.setItem("isAuthenticated", 'true');
       if (user && !user.emailVerified) {
         await user.sendEmailVerification();
         this._dialog.openSuccessDialogV2("Success", "Verifying link sent successfully", '', '');
       }
-      this.router.navigate(["/dashboard"]);
+      if (user && user.emailVerified) {
+        localStorage.setItem("isAuthenticated", 'true');
+        this._isAuthenticated.setAuth();
+        this.router.navigate(["/dashboard"]);
+      }
       return true;
     } catch (e: any) {
       this._isAuthenticated.logout();

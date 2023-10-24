@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
 import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-service';
@@ -7,7 +7,8 @@ import { BreadcrumbService, Breadcrumb } from 'src/app/services/breadcrumb-servi
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrls: ['./toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarComponent {
   username: string = "";
@@ -22,15 +23,17 @@ export class ToolbarComponent {
     private breadcrumbService: BreadcrumbService
   ) {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs;
+
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  ngAfterViewInit() {
-    this.username = localStorage.getItem('email') as string;
-    this.role = localStorage.getItem('role') as string;
-    this.cdRef.detectChanges();
+  ngAfterViewChecked() {
+    if (!!localStorage.getItem('email') && !!localStorage.getItem('role')) {
+      this.username = localStorage.getItem('email') as string;
+      this.role = localStorage.getItem('role') as string;
+      this.cdRef.detectChanges();
+    }
   }
 
   goToProfile() {
