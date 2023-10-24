@@ -20,7 +20,7 @@ export class JobSeekerComponent {
   constructor(
     private sharedService: SharedService,
     private store: Store) {
-    this.store.select(fromFavoriteJob.selectFavorites).subscribe(res => {
+    this.store.select(fromFavoriteJob.selectFavoriteJobs).subscribe(res => {
       if (res.length != 0) {
         this.favorites = res.reduce((acc: { [jobId: string]: boolean }, job: any) => {
           acc[job.jobId] = true;

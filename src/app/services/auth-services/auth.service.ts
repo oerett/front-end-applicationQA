@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 
@@ -9,7 +9,7 @@ import { BehaviorSubject } from "rxjs";
 export class AuthService {
     private _isAuthenticated = new BehaviorSubject<boolean>(false);
 
-    constructor(private afAuth: AngularFireAuth,
+    constructor(private dialog: MatDialog,
         private router: Router) {
 
     }
@@ -23,6 +23,8 @@ export class AuthService {
     }
 
     logout() {
+        this.dialog.closeAll();
+        localStorage.setItem("isAuthenticated", 'false');
         this.clearStorage();
         this._isAuthenticated.next(false);
         this.router.navigateByUrl("/auth/login", {

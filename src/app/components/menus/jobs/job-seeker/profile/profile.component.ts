@@ -10,7 +10,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   animations: [
-    trigger('bodyExpansion', []),  // No transitions
+    trigger('bodyExpansion', []),
     trigger('indicatorRotate', [
       state('collapsed, void', style({ transform: 'rotate(0deg)' })),
       state('expanded', style({ transform: 'rotate(180deg)' })),

@@ -1,4 +1,5 @@
 <div id="login-component" class="page-layout">
+    <mat-spinner *ngIf="isDataLoading" class="mat-spinner"></mat-spinner>
     <mat-card>
         <span class="center auth-title">Sign in</span>
         <form class="login-form" name="loginForm" [formGroup]="loginForm" fxFlex fxLayout="column">
@@ -34,7 +35,4 @@
             </button>
         </form>
     </mat-card>
-    <ngx-spinner bdOpacity=0 bdColor="rgba(13,22,37,0)" size="medium" color="#039BE5" type="ball-clip-rotate"
-        [fullScreen]="false">
-    </ngx-spinner>
 </div>

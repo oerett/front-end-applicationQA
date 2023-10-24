@@ -47,3 +47,8 @@ input {
 .pointer {
   cursor: pointer;
 }
+
+.mat-spinner {
+  position: absolute;
+  z-index: 1040;
+}

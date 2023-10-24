@@ -6,9 +6,7 @@ import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { debounceTime } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +16,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class LoginComponent {
   loginForm: FormGroup;
   rememberMe: boolean = false;
+  isDataLoading: boolean = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -25,9 +24,7 @@ export class LoginComponent {
     private router: Router,
     private _dialog: DialogService,
     private _isAuthenticated: AuthService,
-    private spinner: NgxSpinnerService,
-    private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private afAuth: AngularFireAuth
   ) {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, this.sharedService.emailValidator()]],
@@ -56,24 +53,24 @@ export class LoginComponent {
   }
 
   async loginApicall(form: FormGroup) {
+    this.isDataLoading = true;
     try {
       const userData = await this.afAuth.signInWithEmailAndPassword(form.value.email, form.value.password);
       const user = userData.user;
       if (user && !user.emailVerified) {
         await user.sendEmailVerification();
         this._dialog.openSuccessDialogV2("Success", "Verifying link sent successfully", '', '');
-      }
-      if (user && user.emailVerified) {
-        localStorage.setItem("isAuthenticated", 'true');
+      } else if (user && !!user.emailVerified) {
         this._isAuthenticated.setAuth();
+        localStorage.setItem("isAuthenticated", 'true');
+        this.isDataLoading = false;
         this.router.navigate(["/dashboard"]);
       }
       return true;
     } catch (e: any) {
+      this.isDataLoading = false;
       this._isAuthenticated.logout();
-      localStorage.setItem("isAuthenticated", 'false');
       if (e.code == "auth/invalid-login-credentials") {
-        this.spinner.hide();
         this._dialog.openErrorDialogV2("Error", "Invalid login credentials!", '', '');
       }
       return false;
@@ -86,10 +83,8 @@ export class LoginComponent {
 
   rememberMeEvent(ev: MatCheckboxChange) {
     if (ev.checked) {
-      // Save the email to localStorage.
       localStorage.setItem('rememberedEmail', this.loginForm.value.email);
     } else {
-      // Remove the email from localStorage.
       localStorage.removeItem('rememberedEmail');
     }
   }

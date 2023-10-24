@@ -93,7 +93,6 @@ const routes: Routes = [
         MatIconModule,
         MatMenuModule,
         MatPaginatorModule,
-        // MatButtonModule,
         MatSortModule
     ],
     exports: [JobSeekerComponent, JobOfferComponent],

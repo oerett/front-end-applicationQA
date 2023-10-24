@@ -7,7 +7,6 @@ import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { ModifyJobOfferDialogComponent } from './modify-job-offer-dialog/modify-job-offer-dialog.component';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-job-offer',

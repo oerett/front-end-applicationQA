@@ -11,7 +11,6 @@
                         (click)="favourite(0, job)">favorite</mat-icon>
                     <mat-icon matSuffix class="pointer" *ngIf="!favorites[job.jobId]"
                         (click)="favourite(1, job)">favorite_border</mat-icon>
-
                 </div>
                 <div class="job-long-description">{{job.jobLongDescription}}</div>
             </div>

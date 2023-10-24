@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './app/services/auth-services/guard-services/auth-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -32,6 +31,7 @@ import { ActionReducer, MetaReducer } from '@ngrx/store';
 import { favoriteJobReducer } from './app/components/menus/jobs/job-seeker/favorite-job.reducer';
 import { DashboardModule } from './app/components/menus/dashboard/dashboard.module';
 import { ModifyJobOfferDialogComponent } from './app/components/menus/jobs/job-offer/modify-job-offer-dialog/modify-job-offer-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -82,7 +82,6 @@ export function initializeFirebaseApp(): () => Promise<any> {
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    // Angular Material modules
     MatDialogModule,
     MatIconModule,
     CommonModule,
@@ -95,6 +94,7 @@ export function initializeFirebaseApp(): () => Promise<any> {
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     ToolbarModule,
     DashboardModule
   ],

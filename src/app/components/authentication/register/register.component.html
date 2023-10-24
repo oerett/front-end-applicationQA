@@ -1,4 +1,5 @@
 <div id="register-component" class="page-layout">
+    <mat-spinner *ngIf="isDataLoading" class="mat-spinner"></mat-spinner>
     <mat-card>
         <span class="back-arrow-holder" matTooltip="Go back to sign-in form" (click)="goToLogin()">
             <mat-icon matSuffix class="arrow-back">arrow_back</mat-icon>
