@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SharedService } from 'src/app/shared/services/common-methods.service';
 import { DialogService } from 'src/app/services/dialog/dialogs.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { debounceTime } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { SharedService } from 'src/app/shared/services/common-methods.service';
 
 @Component({
   selector: 'app-login',
@@ -20,14 +20,13 @@ export class LoginComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private sharedService: SharedService,
     private router: Router,
     private _dialog: DialogService,
     private _isAuthenticated: AuthService,
     private afAuth: AngularFireAuth
   ) {
     this.loginForm = this._formBuilder.group({
-      email: ['', [Validators.required, this.sharedService.emailValidator()]],
+      email: ['', [Validators.required, SharedService.emailValidator()]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       rememberMe: [false, [Validators.required, Validators.minLength(6)]]
     });
@@ -49,8 +48,13 @@ export class LoginComponent {
   }
 
   loginUser(form: FormGroup) {
-    form.invalid == true ? form.markAllAsTouched() : this.loginApicall(form);
+    if (form.invalid) {
+      form.markAllAsTouched();
+      return;
+    } else
+      this.loginApicall(form);
   }
+
 
   async loginApicall(form: FormGroup) {
     this.isDataLoading = true;

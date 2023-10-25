@@ -11,11 +11,11 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatInputModule } from "@angular/material/input";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { ToolbarModule } from "src/app/layout/components/toolbar/toolbar.module";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const routes: Routes = [
     {
@@ -88,10 +88,10 @@ const routes: Routes = [
         MatExpansionModule,
         MatInputModule,
         FlexLayoutModule,
-        ToolbarModule,
         MatTableModule,
         MatIconModule,
         MatMenuModule,
+        BrowserAnimationsModule,
         MatPaginatorModule,
         MatSortModule
     ],

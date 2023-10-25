@@ -24,7 +24,7 @@ export class RegisterComponent {
   ) {
     this.registerForm = this._formBuilder.group({
       role: ['', Validators.required],
-      email: ['', [Validators.required, this.sharedService.emailValidator()]],
+      email: ['', [Validators.required, SharedService.emailValidator()]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
